@@ -19,7 +19,7 @@ Here's a list of features this service may or may not include. For now it's an o
 
 * Share ideas and define it by a title, teaser and longer description
 * Search for ideas and see if they already exist
-* Form a team, participate our search for contributors to implement your idea
+* Form a team, participate or search for contributors who might help in developing your idea
 * We're gamers and we need _Gamification_. We feel naked without at least a few badges
 * Share documents
 * Add external links (e.g. contact, link to code repo)
