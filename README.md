@@ -43,3 +43,4 @@ _Hombre, thats awesome! Let me show you how it get's even better!_ | _Hombre, th
 
 * We like to honor our hombres in the **[Hall of Hombres](HALLOFHOMBRES.md)**. Every hombre who's done the most outstanding job for the past month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
 * We drink _Tequilla_ every time we achieve a milestone! :cocktail:
+* Stay positive and code with a smile. You should have as much as fun [as this guy](https://www.youtube.com/watch?v=KHZ8ek-6ccc) or otherwise invite some hombres for a coding _fiesta_!
