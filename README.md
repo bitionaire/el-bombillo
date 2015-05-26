@@ -1,6 +1,6 @@
 # Hola hombres!
 
-We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ community for apples. Maybe appless are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
+We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ community for apples. Maybe apples are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
 
 So we created the idea of...
 
@@ -45,5 +45,5 @@ _Hombre, thats awesome! Let me show you how it get's even better!_
 
 _Hombre, that's bad. That's.. just bad._ :unamused:
 
-* We like to honor our hombres in the **[Hall of Hombres](HALLOFHOMBRES.md)**. Every hombre who's done the most outstanding job for the last month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
+* We like to honor our hombres in the **[Hall of Hombres](HALLOFHOMBRES.md)**. Every hombre who's done the most outstanding job for the past month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
 * We drink _Tequilla_ every time we achieve a milestone! :cocktail:
