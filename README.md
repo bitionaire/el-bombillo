@@ -11,7 +11,7 @@ So we created the idea of...
 <i>The muchacho we trust!</i>
 </p>
 
-Maybe you're asking yourself who's _we_ and why we're doing this? We're just some enthusiastic software developpers and we as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_. We'll achieve our goal together and we need a greenfield project we can play around with. That'll be _El Bombillo_.
+Maybe you're asking yourself who's _we_ and why are we doing this? We're just some enthusiastic software developpers and we as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_. We'll achieve our goal together and we need a greenfield project we can play around with. That'll be _El Bombillo_.
 
 ## List of possible features
 
