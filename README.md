@@ -4,11 +4,12 @@ We :heart: to innovate. And as much as we love innovation, we're missing a simpl
 
 So we created the idea for...
 
-->![El Bombillo][1]<-
-
+<p align="center">
+![El Bombillo][1]
+<p/>
 _The muchacho we trust!_
 
-But first, let me start on who's _we_ (at least for now). We're employees of [1&1](http://www.1und1.de/), an internet service provider and web hosting company. Our department decided to learn more about _Microservices_ and _Continuous delivery_ and we'll achieve our goal together. For sure, we need a greenfield project we can play around with. That'll be _El Bombillo_.
+We as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_ and we'll achieve our goal together. For sure, we need a greenfield project we can play around with. That'll be _El Bombillo_.
 
 ## Wishful features
 
