@@ -1,18 +1,17 @@
 # Hola hombres!
 
-We :heart: to innovate. And as much as we love innovation, we're missing a simple, easy to use platform where we can share our ideas and improve the concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s and I prefer :peach:es. But there's a _1.000.000$_ community for apples. So maybe appless are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
+We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ community for apples. Maybe appless are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
 
-So we created the idea for...
+So we created the idea of...
 
 <p align="center">
-  <img src="readme/elbombillo.png" height="300" width="auto"/>
+  <img src="readme/elbombillo.png" />
 </p>
 <p align="center">
 <i>The muchacho we trust!</i>
 </p>
 
-
-We as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_ and we'll achieve our goal together. For sure, we need a greenfield project we can play around with. That'll be _El Bombillo_.
+Maybe you're asking yourself who's _we_ and why we're doing this? We're just some enthusiastic software developpers and we as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_. We'll achieve our goal together and we need a greenfield project we can play around with. That'll be _El Bombillo_.
 
 ## Wishful features
 
