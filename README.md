@@ -1,6 +1,6 @@
 # Hola hombres!
 
-We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ community for apples. Maybe apples are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
+We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ market for apples. Maybe apples are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
 
 So we created the idea of...
 
