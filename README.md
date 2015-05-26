@@ -37,13 +37,9 @@ Maybe you're asking yourself who's _we_ and why we're doing this? We're just som
 * We're open minded! We love to experiment and we love to fail, as we learn from our mistakes  and improve our skills everytime. We love controversy and discussion.
 * If you like to address one of your fellas, then call him _Hombre_. **But**, take care of the proper use of this title and always be positive about it... _Always!_ Here some examples for the proper usage of _hombre_:
 
-:white_check_mark: **Good**  
-
-_Hombre, thats awesome! Let me show you how it get's even better!_
-
-:x: **Bad**
-
-_Hombre, that's bad. That's.. just bad._ :unamused:
+:white_check_mark: **Good**  | :x: **Bad**
+---------------------------- | -----------
+_Hombre, thats awesome! Let me show you how it get's even better!_ | _Hombre, that's bad. That's.. just bad._ :unamused:
 
 * We like to honor our hombres in the **[Hall of Hombres](HALLOFHOMBRES.md)**. Every hombre who's done the most outstanding job for the past month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
 * We drink _Tequilla_ every time we achieve a milestone! :cocktail:
