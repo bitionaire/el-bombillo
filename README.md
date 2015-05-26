@@ -45,5 +45,5 @@ _Hombre, thats awesome! Let me show you how it get's even better!_
 
 _Hombre, that's bad. That's.. just bad._ :unamused:
 
-* We like to honor our hombres in the **Hall of Hombres**. Every hombre who's done the most outstanding job for the last month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
+* We like to honor our hombres in the **[Hall of Hombres](HALLOFHOMBRES.md)**. Every hombre who's done the most outstanding job for the last month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
 * We drink _Tequilla_ every time we achieve a milestone! :cocktail:
