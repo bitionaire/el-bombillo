@@ -5,9 +5,12 @@ We :heart: to innovate. And as much as we love innovation, we're missing a simpl
 So we created the idea for...
 
 <p align="center">
-![El Bombillo][1]
-<p/>
-_The muchacho we trust!_
+  <img src="readme/elbombillo.png" height="300" width="auto"/>
+</p>
+<p align="center">
+<i>The muchacho we trust!</i>
+</p>
+
 
 We as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_ and we'll achieve our goal together. For sure, we need a greenfield project we can play around with. That'll be _El Bombillo_.
 
@@ -45,5 +48,3 @@ _Hombre, that's bad. That's.. just bad._ :unamused:
 
 * We like to honor our hombres in the **Hall of Hombres**. Every hombre who's done the most outstanding job for the last month will be honored and inducted ceremonically (by a simple commit) into the Hall of Hombres.
 * We drink _Tequilla_ every time we achieve a milestone! :cocktail:
-
-[1]: readme/elbombillo.png  "El Bombillo"
