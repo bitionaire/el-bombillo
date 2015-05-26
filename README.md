@@ -13,7 +13,9 @@ So we created the idea of...
 
 Maybe you're asking yourself who's _we_ and why we're doing this? We're just some enthusiastic software developpers and we as a group decided to explore the benefits and proper use of _Microservices_ and _Continuous delivery_. We'll achieve our goal together and we need a greenfield project we can play around with. That'll be _El Bombillo_.
 
-## Wishful features
+## List of possible features
+
+Here's a list of features this service may or may not include. For now it's an overview that will help you to get a better impression of what'll be trying to do.
 
 * Share ideas and define it by a title, teaser and longer description
 * Search for ideas and see if they already exist
@@ -30,6 +32,10 @@ Maybe you're asking yourself who's _we_ and why we're doing this? We're just som
 * We need a calendar to appoint our meetings (... and we love :beer:, maybe it can be combined)
 * Upload images (and other files) to illustrate our ideas
 * We need recommendations (best ideas, latest ideas, trending ideas, etc.)
+
+## Next steps
+
+* Answer [awkward questions for those boarding the microservices bandwagon](http://blog.oshineye.com/2015/01/awkward-microservices-questions.html) (e.g. [here](http://blog.jayfields.com/2015/03/my-answers-for-microservices-awkward.html))
 
 ## Contributors constitution
 
