@@ -42,7 +42,7 @@ Here's a list of features this service may or may not include. For now it's an o
 
 * Greet everybody on this project with either a casual _Hola!_ or _Buenos dias!_ /_Buenas tardes!_ / _Buenas noches!_, depending on the time of day
 * We're open minded! We love to experiment and we love to fail, as we learn from our mistakes  and improve our skills everytime. Therefore we embrace controversy and are always up for a discussion.
-* If you like to address one of your fellas, then call him _Hombre_. **But**, take care of the proper use of this title and always be positive about it... _Always!_ Here some examples for the proper usage of _hombre_:
+* If you like to address one of your fellas, then call him _Hombre_ (_unisex_ in this case). **But**, take care of the proper use of this title and always be positive about it... _Always!_ Here some examples for the proper usage of _hombre_:
 
 :white_check_mark: **Good**  | :x: **Bad**
 ---------------------------- | -----------
