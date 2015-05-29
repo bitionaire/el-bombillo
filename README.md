@@ -40,6 +40,12 @@ Here's a list of features this service may or may not include. For now it's an o
 * Answer [awkward questions for those boarding the microservices bandwagon](http://blog.oshineye.com/2015/01/awkward-microservices-questions.html) (e.g. [here](http://blog.jayfields.com/2015/03/my-answers-for-microservices-awkward.html))
 * Discuss on technologies we like to use for for the build system (e.g. Gradle, Maven, Grunt, [itBldz](https://github.com/1and1/itBldz)), on how we want to setup our services (e.g. Docker, VMs, ...), on how we want to build or test them (e.g. Jenkins, [GoCD](http://www.go.cd/), TravisCI) and how we want to deploy them (e.g. Ansible, Puppet, Fabric, Salt, ...)
 
+## How we work
+
+* Communicate via [Gitter](https://gitter.im/bitionaire/el-bombillo) to get in contact or talk about your current task
+* Upcoming and current tasks are located transparently in [Issues](https://github.com/bitionaire/el-bombillo/issues)
+* We will post regular updates in our [Developers diary](https://github.com/bitionaire/el-bombillo/wiki/Developers-diary) so that you can follow our progress
+
 ## Contributors constitution
 
 * Greet everybody on this project with either a casual _Hola!_ or _Buenos dias!_ /_Buenas tardes!_ / _Buenas noches!_, depending on the time of day
