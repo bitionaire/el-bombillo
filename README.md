@@ -39,6 +39,8 @@ Here's a list of features this service may or may not include. For now it's an o
 
 * Answer [awkward questions for those boarding the microservices bandwagon](http://blog.oshineye.com/2015/01/awkward-microservices-questions.html) (e.g. [here](http://blog.jayfields.com/2015/03/my-answers-for-microservices-awkward.html))
 * Discuss on technologies we like to use for for the build system (e.g. Gradle, Maven, Grunt, [itBldz](https://github.com/1and1/itBldz)), on how we want to setup our services (e.g. Docker, VMs, ...), on how we want to build or test them (e.g. Jenkins, [GoCD](http://www.go.cd/), TravisCI) and how we want to deploy them (e.g. Ansible, Puppet, Fabric, Salt, ...)
+* Define features for the first version
+* Design UI
 
 ## How we work
 
