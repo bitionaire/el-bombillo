@@ -9,6 +9,16 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'build/resources/main/webapp/css/main.css': 'src/main/resources/webapp/sass/main.scss'
+                }
+            }
+        },
         tsd: {
             refresh: {
                 options: {
@@ -30,6 +40,10 @@ module.exports = function (grunt) {
             }
         },
         watch: {
+            css: {
+                files: "src/main/resources/webapp/sass/*.scss",
+                tasks: ['sass']
+            },
             js: {
                 files: "src/main/resources/webapp/app/**/*.ts",
                 tasks: ['ts']
@@ -45,6 +59,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-tsd');
     grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['tsd', 'ts', 'copy']);
+    grunt.registerTask('default', ['tsd', 'ts', 'copy', 'sass']);
 };

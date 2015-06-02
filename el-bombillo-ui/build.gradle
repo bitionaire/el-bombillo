@@ -35,7 +35,7 @@ dependencies {
 
 sourceSets {
     main {
-        resources.exclude '**/app/'
+        resources.exclude '**/app/', '**/sass/'
     }
 }
 
