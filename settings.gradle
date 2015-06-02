@@ -1,0 +1,3 @@
+rootProject.name = 'el-bombillo'
+
+include 'el-bombillo-ui'

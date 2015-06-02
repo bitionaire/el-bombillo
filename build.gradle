@@ -1,0 +1,4 @@
+allprojects {
+    group = 'org.bitionaire'
+    version = '0.1.0-SNAPSHOT'
+}
