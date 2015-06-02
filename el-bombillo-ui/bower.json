@@ -1,0 +1,10 @@
+{
+  "name": "el-bombillo-ui",
+  "version": "0.1.0",
+  "dependencies": {
+    "angular-route": "~1.4.0",
+    "angular-resource": "~1.4.0",
+    "angular": "~1.4.0",
+    "jquery": "~2.1.3"
+  }
+}

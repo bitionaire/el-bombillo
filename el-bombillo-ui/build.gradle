@@ -42,8 +42,17 @@ node {
     download = true
 }
 
+// bower and cleanup
+task bowerInstall(type: NodeTask) {
+    script = project.file('node_modules/bower/bin/bower')
+    args = ['install']
+}
+bowerInstall.dependsOn npmInstall
+clean { delete 'bower_components' }
+
+// grunt configuration
 task gruntBuild(type: GruntTask) {
-    dependsOn 'installGrunt', 'npmInstall'
+    dependsOn 'installGrunt', 'npmInstall', 'bowerInstall'
     args = [ "default" ]
 }
 processResources.dependsOn gruntBuild
@@ -53,6 +62,7 @@ task gruntWatch(type: GruntBackgroundTask) {
     args = [ "watch" ]
 }
 
+// execution of webserver
 run {
     dependsOn gruntWatch
     args '--port', '8080'

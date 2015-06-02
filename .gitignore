@@ -3,3 +3,4 @@
 *.iml
 el-bombillo-ui/build
 el-bombillo-ui/node_modules
+el-bombillo-ui/bower_components
