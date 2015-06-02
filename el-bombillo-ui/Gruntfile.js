@@ -10,9 +10,6 @@ module.exports = function (grunt) {
             }
         },
         sass: {
-            options: {
-                sourceMap: true
-            },
             dist: {
                 files: {
                     'build/resources/main/webapp/css/main.css': 'src/main/resources/webapp/sass/main.scss'

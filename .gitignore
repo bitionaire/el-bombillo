@@ -7,3 +7,5 @@ el-bombillo-ui/bower_components
 *.d.ts
 .tscache
 *.tmp.txt
+*.log
+.sass-cache
