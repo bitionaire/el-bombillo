@@ -7,7 +7,7 @@ We :heart: to innovate. And as much as we love to innovate, we're missing a simp
 So we created the idea of...
 
 <p align="center">
-  <img src="readme/elbombillo.png" />
+  <img src=".readme/elbombillo.png" />
 </p>
 <p align="center">
 <i>The muchacho we trust!</i>
