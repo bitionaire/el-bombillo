@@ -2,10 +2,32 @@
 @import "../../../../../bower_components/foundation/scss/foundation/components/grid";
 @import "fonts";
 
-$background-color:  #fff;
-$font-color: #222;
+html, html a {
+  font-size: 100%;
 
-body {
-  background-color: $background-color;
-  color: $font-color;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+$default-padding: 16px;
+
+body > header {
+  width: 100%;
+  padding-top: 16px;
+  padding-left: 32px;
+  padding-bottom: 50px;
+
+  background: url('../img/angle-top.png') no-repeat right bottom;
+
+  img.logo {
+    width: 10%;
+    min-width: 100px;
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+main {
+  background-color: #ffdc54;
 }
