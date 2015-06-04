@@ -5,17 +5,17 @@
     'use strict';
 
     angular
-        .module('app');
-        //.config(config);
+        .module('app')
+        .config(config);
 
-    /**function config($routeProvider : ng.route.IRouteProvider) {
+    function config($routeProvider : ng.route.IRouteProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "...",
+                templateUrl: "homeView.html",
                 controller: "Home",
                 controllerAs: "home"
             }).otherwise({
                 redirectTo: "/"
             })
-    };*/
+    };
 })();

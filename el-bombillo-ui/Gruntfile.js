@@ -4,6 +4,10 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
+                    {expand: true, flatten: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'build/resources/main/webapp/js', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ['bower_components/angular/angular.min.js'], dest: 'build/resources/main/webapp/js', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ['bower_components/angular-route/angular-route.min.js'], dest: 'build/resources/main/webapp/js', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ['bower_components/angular-resource/angular-resource.min.js'], dest: 'build/resources/main/webapp/js', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/main/resources/webapp/app/**/*.html'], dest: 'build/resources/main/webapp/', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/main/resources/webapp/*.html'], dest: 'build/resources/main/webapp/'}
                 ]

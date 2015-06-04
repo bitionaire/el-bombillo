@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <title>El Bombillo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
     <script src="js/el-bombillo-application.js"></script>
 </head>
 <body>
 
-Test
+<header>
+    <div class="logo">
+        <img src="img/elbombillo.png"/>
+    </div>
+</header>
+
+<main ng-view></main>
+
+<footer>
+    <dl class="sitemap">
+        <dt>Siteman</dt>
+        <dd>Home</dd>
+        <dd>Settings</dd>
+    </dl>
+
+    <dl class="social">
+        <dt>Facebook</dt>
+        <dd>Link</dd>
+
+        <dt>Twitter</dt>
+        <dd>Link</dd>
+
+        <dt>Google+</dt>
+        <dd>Link</dd>
+    </dl>
+
+    <p>
+        &copy; 2015 El Bombillo Hombres
+    </p>
+    <p>
+        All rights reserved
+    </p>
+
+    <p>
+        Checkout the sources
+    </p>
+</footer>
 
 </body>
 </html>
