@@ -1,0 +1,57 @@
+// font definitions
+@font-face {
+  font-family: 'Signika-Light';
+  src: url('../fonts/Signika-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Signika-Regular';
+  src: url('../fonts/Signika-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Signika-Semibold';
+  src: url('../fonts/Signika-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Signika-Bold';
+  src: url('../fonts/Signika-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sacramento-Regular';
+  src: url('../fonts/Sacramento-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FrederickatheGreat-Regular';
+  src: url('../fonts/FrederickatheGreat-Regular.ttf') format('truetype');
+}
+
+// constants
+$default-font-size: 1em;
+
+// mixins
+@mixin font-regular {
+  font: {
+    family: Signika-Light;
+    size: $default-font-size;
+    weight: normal;
+  }
+}
+
+@mixin font-bold {
+  font: {
+    family: Signika-Regular;
+    size: $default-font-size;
+    weight: normal;
+  }
+}
+
+@mixin font-h1 {
+  font: {
+    family: Sacramento-Regular;
+    weight: normal;
+  }
+}
