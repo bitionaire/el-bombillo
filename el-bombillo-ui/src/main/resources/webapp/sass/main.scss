@@ -95,7 +95,7 @@ body > footer {
   }
 }
 
-// home stuff
+// ************ idea UI Card styling
 .idea-overview {
   padding: $default-padding / 2;
   background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
@@ -156,7 +156,7 @@ body > footer {
     }
   }
 }
-
+// ************
 
 .bottom-angle-separator {
   width: 100%;
@@ -174,43 +174,3 @@ body > footer {
   min-height: 200px;
   padding: $default-padding;
 }
-
-.idea-detail {
-  background-color: #fff;
-  padding: $default-padding;
-
-  .row {
-    margin: 0;
-    max-width: 100%;
-  }
-
-  .title {
-    @include font-bold();
-    font-size: 1.1em;
-  }
-
-  .statistics {
-
-    &.popularity {
-
-    }
-
-    &.activity {
-
-    }
-
-    &.status {
-
-    }
-
-    .statistics-title {
-      @include font-bold();
-      font-size: 0.9em;
-      color: #bbb;
-      text-transform: uppercase;
-    }
-
-  }
-}
-
-

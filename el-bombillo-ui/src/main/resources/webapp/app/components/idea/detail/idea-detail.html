@@ -1,40 +1,5 @@
-<div class="idea-detail-wrapper">
-    <article class="idea-detail">
-        <div class="row">
-            <div class="icon small-12 large-1 columns">
-                Logo
-            </div>
-            <div class="small-12 large-8 columns">
-                <header class="title">{{ ideaController.idea.title }}</header>
-                <section class="description">{{ ideaController.idea.description }}</section>
-            </div>
-
-            <section class="statistics popularity small-12 large-1 columns">
-                {{ ideaController.idea.popularity }}
-                <span class="statistics-title">Popularity</span>
-            </section>
-            <section class="statistics activity small-12 large-1 columns">
-                {{ ideaController.idea.activity }}
-                <span class="statistics-title">Activity</span>
-            </section>
-            <section class="statistics status small-12 large-1 columns">
-                {{ ideaController.idea.status }}
-                <span class="statistics-title">Status</span>
-            </section>
-        </div>
-        <div class="row">
-            <section class="tags small-12 large-6 columns">
-                <ul>
-                    <li ng-repeat="tag in ideaController.idea.tags">{{ tag }}</li>
-                </ul>
-            </section>
-            <section class="members small-12 large-6 columns">
-                <ul>
-                    <li ng-repeat="member in ideaController.idea.members">{{ member.name }}</li>
-                </ul>
-            </section>
-        </div>
-    </article>
+<div class="idea-overview">
+    <article class="idea" idea-card-directive idea="ideaController.idea" detail="true" />
 </div>
 
 <div class="bottom-angle-separator"></div>

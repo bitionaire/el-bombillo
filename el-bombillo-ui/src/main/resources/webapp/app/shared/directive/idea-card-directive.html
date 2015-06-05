@@ -1,11 +1,12 @@
 <div class="idea-card">
     <div class="row">
         <div class="idea-icon small-12 large-2 columns">
-            <a href="#/idea/1"><img src="../img/unknown.jpg"/></a>
+            <a href="#/idea/1" ng-if="detail == 'false'"><img src="../img/unknown.jpg"/></a>
+            <img ng-if="detail == 'true'" src="../img/unknown.jpg"/>
         </div>
         <div class="idea-description small-12 large-10 columns">
-            <header class="title" ng-if="editable == 'false'">{{ idea.title }}</header>
-            <input ng-model="idea.title" ng-if="editable == 'true'"/>
+            <header class="title" ng-if="detail == 'false'">{{ idea.title }}</header>
+            <input ng-model="idea.title" ng-if="detail == 'true'"/>
 
             <section class="description">{{ idea.description }}</section>
         </div>

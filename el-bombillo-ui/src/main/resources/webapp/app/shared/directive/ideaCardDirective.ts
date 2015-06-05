@@ -12,7 +12,7 @@ module directive {
             // @property -> read only
             // =property -> two way binding
 
-            editable: '@editable',
+            detail: '@detail',
             idea: '=idea'
         };
     }
