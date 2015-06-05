@@ -95,7 +95,7 @@ body > footer {
 }
 
 // home stuff
-.ideas {
+.idea-overview {
   padding: $default-padding / 2;
   background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
   min-height: 200px;
@@ -105,18 +105,37 @@ body > footer {
     display: table;
     clear: both;
   }
-}
 
-.idea {
-  float: left;
-  background-color: #fff;
+  .idea {
+    float: left;
+    background-color: #fff;
 
-  margin: $default-padding / 2;
+    margin: $default-padding / 2;
 
-  .status {
-    background-color: #bbb;
+    .idea-icon {
+      img {
+        width: 70px;
+        height: auto;
+        margin: $default-padding;
+
+        border-radius: 35px;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+
+        float: left;
+      }
+    }
+
+    .idea-description {
+      margin: $default-padding $default-padding $default-padding 0;
+    }
+
+    .status {
+      background-color: #bbb;
+    }
   }
 }
+
 
 .bottom-angle-separator {
   width: 100%;
@@ -129,13 +148,13 @@ body > footer {
 }
 
 // idea stuff
-.idea-overview-wrapper {
+.idea-detail-wrapper {
   background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
   min-height: 200px;
   padding: $default-padding;
 }
 
-.idea-overview {
+.idea-detail {
   background-color: #fff;
   padding: $default-padding;
 
