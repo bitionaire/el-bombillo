@@ -97,7 +97,8 @@ body > footer {
 // home stuff
 .ideas {
   padding: $default-padding / 2;
-  background-color: #ffdc54;
+  background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
+  min-height: 200px;
 
   &:after {
     content: "";
