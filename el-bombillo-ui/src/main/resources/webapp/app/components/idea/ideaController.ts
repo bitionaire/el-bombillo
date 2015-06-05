@@ -6,8 +6,12 @@
 module home {
     'use strict';
 
+    interface IdeaRouteParams extends ng.route.IRouteParamsService {
+        id: number;
+    }
+
     /** The controller for the home view. */
-    export class HomeController {
+    export class IdeaController {
 
         /** The idea service. */
         private ideaService: service.IdeaService;
@@ -17,17 +21,15 @@ module home {
          *
          * @param ideaService the idea service
          */
-        constructor(ideaService: service.IdeaService) {
+        constructor($routeParams: IdeaRouteParams, ideaService: service.IdeaService) {
             this.ideaService = ideaService;
-
-            this.ideas = ideaService.getAll();
+            this.idea = ideaService.get($routeParams.id);
         }
 
-        /** List of ideas to display. */
-        ideas: model.Idea[];
+        idea: model.Idea;
     }
 
     angular
         .module('app')
-        .controller('Home', HomeController);
+        .controller('IdeaController', IdeaController);
 };

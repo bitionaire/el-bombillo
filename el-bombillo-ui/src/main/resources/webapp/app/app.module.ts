@@ -1,10 +1,9 @@
 /// <reference path="types/tsd.d.ts"/>
 
-(function() {
+(function () {
     'use strict';
 
-    angular
-        .module("app", [
-            "ngRoute"
-        ]);
+    angular.module("app", [
+        "ngRoute"
+    ]);
 })();

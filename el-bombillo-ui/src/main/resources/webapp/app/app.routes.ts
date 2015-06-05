@@ -14,6 +14,10 @@
                 templateUrl: "homeView.html",
                 controller: "Home",
                 controllerAs: "home"
+            }).when("/idea/:id", {
+                templateUrl: "idea.html",
+                controller: "IdeaController",
+                controllerAs: "ideaController"
             }).otherwise({
                 redirectTo: "/"
             })

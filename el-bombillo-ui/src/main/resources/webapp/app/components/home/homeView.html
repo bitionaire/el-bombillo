@@ -1,16 +1,40 @@
 <div class="ideas">
-    <article class="idea">
-        <div class="icon"></div>
-        <header>Title</header>
-        <section class="description"></section>
-        <section class="popularity"></section>
-        <section class="activity"></section>
-        <section class="status"></section>
-        <section class="tags"></section>
-        <section class="members"></section>
+    <article class="idea" ng-repeat="idea in home.ideas">
+        <div class="row">
+            <div class="icon small-12 large-1 columns">
+                <a href="#/idea/1">Link</a>
+            </div>
+            <div class="small-12 large-11 columns">
+                <header>{{ idea.title }}</header>
+                <section class="description">{{ idea.description }}</section>
+            </div>
+        </div>
+        <div class="row status">
+            <section class="popularity small-12 large-4 columns">{{ idea.popularity }}</section>
+            <section class="activity small-12 large-4 columns">{{ idea.activity }}</section>
+            <section class="status small-12 large-4 columns">{{ idea.status }}</section>
+        </div>
+        <div class="row">
+            <section class="tags small-12 large-6 columns">
+                <ul>
+                    <li ng-repeat="tag in idea.tags">{{ tag }}</li>
+                </ul>
+            </section>
+            <section class="members small-12 large-6 columns">
+                <ul>
+                    <li ng-repeat="member in idea.members">{{ member.name }}</li>
+                </ul>
+            </section>
+        </div>
     </article>
 </div>
 
+<div class="bottom-angle-separator"></div>
+
 <aside class="about">
     <h2>What is this about?</h2>
+
+    <p>
+        El Bombillo is all about innovation. It's a platform for your ideas - where you can find supporters and contributors.
+    </p>
 </aside>

@@ -43,13 +43,13 @@ $default-font-size: 1em;
 
 @mixin font-bold {
   font: {
-    family: Signika-Regular;
+    family: Signika-Semibold;
     size: $default-font-size;
     weight: normal;
   }
 }
 
-@mixin font-h1 {
+@mixin font-title {
   font: {
     family: Sacramento-Regular;
     weight: normal;
@@ -57,5 +57,13 @@ $default-font-size: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @include font-h1();
+  @include font-title();
+}
+
+h1 {
+  font-size: 2.5 * $default-font-size;
+}
+
+h2 {
+  font-size: 2 * $default-font-size;
 }
