@@ -1,0 +1,18 @@
+[
+  {
+    "logo": "example/idea/idea_icon_1.jpg",
+    "title": "Idea 1",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 1,
+    "activity": 1,
+    "status": 1,
+    "tags": [
+      "Idea",
+      "IT"
+    ],
+    "members": [
+      { "name": "bitionaire" },
+      { "name": "netdevfighter" }
+    ]
+  }
+]
