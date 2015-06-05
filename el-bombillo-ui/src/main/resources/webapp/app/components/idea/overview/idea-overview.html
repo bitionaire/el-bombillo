@@ -1,5 +1,7 @@
 <div class="idea-overview">
-    <article class="idea" ng-repeat="idea in home.ideas">
+    <article class="idea" ng-repeat="idea in home.ideas" idea-card-directive idea="idea" editable="false" />
+
+    <!--<article class="idea" ng-repeat="idea in home.ideas">
         <div class="row">
             <div class="idea-icon">
                 <a href="#/idea/1"><img src="../img/unknown.jpg"/></a>
@@ -26,7 +28,7 @@
                 </ul>
             </section>
         </div>
-    </article>
+    </article>-->
 </div>
 
 <div class="bottom-angle-separator"></div>

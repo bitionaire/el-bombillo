@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="idea-icon small-12 large-1 columns">
+        <a href="#/idea/1"><img src="../img/unknown.jpg"/></a>
+    </div>
+    <div class="idea-description small-12 large-8 columns">
+        <header class="title">{{ idea.title }}</header>
+        <section class="description">{{ idea.description }}</section>
+    </div>
+
+    <section class="statistics popularity small-12 large-1 columns">
+        {{ idea.popularity }}
+        <span class="statistics-title">Popularity</span>
+    </section>
+    <section class="statistics activity small-12 large-1 columns">
+        {{ idea.activity }}
+        <span class="statistics-title">Activity</span>
+    </section>
+    <section class="statistics status small-12 large-1 columns">
+        {{ idea.status }}
+        <span class="statistics-title">Status</span>
+    </section>
+</div>
+<div class="row">
+    <section class="small-12 large-6 columns">
+        <ul>
+            <li ng-repeat="tag in idea.tags">{{ tag }}</li>
+        </ul>
+    </section>
+    <section class="small-12 large-6 columns">
+        <ul>
+            <li ng-repeat="member in idea.members">{{ member.name }}</li>
+        </ul>
+    </section>
+</div>
