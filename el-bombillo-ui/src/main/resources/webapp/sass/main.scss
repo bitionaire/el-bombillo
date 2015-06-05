@@ -1,6 +1,7 @@
 @import "../../../../../bower_components/foundation/scss/normalize";
 @import "../../../../../bower_components/foundation/scss/foundation/components/grid";
 @import "fonts";
+@import "util";
 
 $default-padding: 16px;
 
@@ -105,39 +106,53 @@ body > footer {
     display: table;
     clear: both;
   }
+}
 
-  .idea {
-    float: left;
-    background-color: #fff;
+.idea-card {
+  float: left;
+  background-color: #fff;
 
-    margin: $default-padding / 2;
+  margin: $default-padding / 2;
 
-    .idea-icon {
-      img {
-        width: 70px;
-        height: auto;
-        margin: $default-padding;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
 
-        border: 2px solid #ffdc54;
+  .idea-icon {
+    img {
+      width: 70px;
+      height: auto;
+      margin: $default-padding;
 
-        border-radius: 35px;
-        -webkit-border-radius: 35px;
-        -moz-border-radius: 35px;
+      border: 2px solid #ffdc54;
 
+      border-radius: 35px;
+      -webkit-border-radius: 35px;
+      -moz-border-radius: 35px;
 
-
-        float: left;
-      }
+      float: left;
     }
+  }
 
-    .idea-description {
-      width: 400px;
+  .idea-description {
+    width: 400px;
 
-      header {
-        @include font-bold();
-        font-size: 1.1em;
-      }
-      margin: $default-padding $default-padding $default-padding 0;
+    header {
+      @include font-bold();
+      font-size: 1.1em;
+    }
+    margin: $default-padding $default-padding $default-padding 0;
+  }
+
+  .idea-statistics {
+    text-align: center;
+    background-color: #ddd;
+
+    .statistics-title {
+      display: block;
+      @include font-bold();
+      color: #666;
+      text-transform: uppercase;
     }
   }
 }
