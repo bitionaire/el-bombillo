@@ -3,7 +3,9 @@
         <a href="#/idea/1"><img src="../img/unknown.jpg"/></a>
     </div>
     <div class="idea-description small-12 large-8 columns">
-        <header class="title">{{ idea.title }}</header>
+        <header class="title" ng-if="editable == 'false'">{{ idea.title }}</header>
+        <input ng-model="idea.title" ng-if="editable == 'true'" />
+
         <section class="description">{{ idea.description }}</section>
     </div>
 
