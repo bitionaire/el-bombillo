@@ -6,16 +6,16 @@
   "bundle": "src/main/resources/webapp/app/types/tsd.d.ts",
   "installed": {
     "angularjs/angular-route.d.ts": {
-      "commit": "c50b111ded0a3a18b87b5abffea3150d6aca94da"
+      "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     },
     "angularjs/angular-resource.d.ts": {
-      "commit": "c50b111ded0a3a18b87b5abffea3150d6aca94da"
+      "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     },
     "angularjs/angular.d.ts": {
-      "commit": "c50b111ded0a3a18b87b5abffea3150d6aca94da"
+      "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     },
     "jquery/jquery.d.ts": {
-      "commit": "c50b111ded0a3a18b87b5abffea3150d6aca94da"
+      "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
     }
   }
 }
