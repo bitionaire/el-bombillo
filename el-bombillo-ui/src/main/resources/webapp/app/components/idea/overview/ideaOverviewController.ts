@@ -1,13 +1,13 @@
-/// <reference path="../../types/tsd.d.ts"/>
-/// <reference path="../../app.module.ts"/>
-/// <reference path="../../shared/service/ideaService.ts"/>
-/// <reference path="../../shared/model/idea.ts"/>
+/// <reference path="../../../types/tsd.d.ts"/>
+/// <reference path="../../../app.module.ts"/>
+/// <reference path="../../../shared/service/ideaService.ts"/>
+/// <reference path="../../../shared/model/idea.ts"/>
 
-module home {
+module controller.idea.overview {
     'use strict';
 
     /** The controller for the home view. */
-    export class HomeController {
+    export class IdeaOverviewController {
 
         /** The idea service. */
         private ideaService: service.IdeaService;
@@ -29,5 +29,5 @@ module home {
 
     angular
         .module('app')
-        .controller('Home', HomeController);
+        .controller('IdeaOverviewController', IdeaOverviewController);
 };

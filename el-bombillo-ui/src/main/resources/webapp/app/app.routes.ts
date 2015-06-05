@@ -11,12 +11,12 @@
     function config($routeProvider : ng.route.IRouteProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "homeView.html",
-                controller: "Home",
+                templateUrl: "idea-overview.html",
+                controller: "IdeaOverviewController",
                 controllerAs: "home"
             }).when("/idea/:id", {
-                templateUrl: "idea.html",
-                controller: "IdeaController",
+                templateUrl: "idea-detail.html",
+                controller: "IdeaDetailController",
                 controllerAs: "ideaController"
             }).otherwise({
                 redirectTo: "/"
