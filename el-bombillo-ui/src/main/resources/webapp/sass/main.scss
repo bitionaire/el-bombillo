@@ -118,15 +118,25 @@ body > footer {
         height: auto;
         margin: $default-padding;
 
+        border: 2px solid #ffdc54;
+
         border-radius: 35px;
         -webkit-border-radius: 35px;
         -moz-border-radius: 35px;
+
+
 
         float: left;
       }
     }
 
     .idea-description {
+      width: 400px;
+
+      header {
+        @include font-bold();
+        font-size: 1.1em;
+      }
       margin: $default-padding $default-padding $default-padding 0;
     }
 
