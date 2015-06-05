@@ -23,7 +23,7 @@ module controller.idea.detail {
          */
         constructor($routeParams: IdeaDetailRouteParams, ideaService: service.IdeaService) {
             this.ideaService = ideaService;
-            this.idea = ideaService.get($routeParams.id);
+            this.idea = ideaService.find($routeParams.id);
         }
 
         idea: model.Idea;

@@ -130,7 +130,8 @@ body > footer {
 
 // idea stuff
 .idea-overview-wrapper {
-  background-color: #ffdc54;
+  background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
+  min-height: 200px;
   padding: $default-padding;
 }
 

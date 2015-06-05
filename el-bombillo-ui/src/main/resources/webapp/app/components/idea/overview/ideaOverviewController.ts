@@ -20,7 +20,7 @@ module controller.idea.overview {
         constructor(ideaService: service.IdeaService) {
             this.ideaService = ideaService;
 
-            this.ideas = ideaService.getAll();
+            this.ideas = ideaService.all();
         }
 
         /** List of ideas to display. */

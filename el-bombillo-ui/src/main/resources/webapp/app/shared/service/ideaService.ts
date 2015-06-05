@@ -13,7 +13,7 @@ module service {
          *
          * @returns {model.Idea[]} the list of ideas
          */
-        getAll():model.Idea[] {
+        all():model.Idea[] {
             var ideas : Array<model.Idea> = [];
             for (var i = 0; i < 9; i++) {
                 ideas[i] = {
@@ -39,7 +39,7 @@ module service {
             return ideas;
         }
 
-        get(id: number) : model.Idea {
+        find(id: number) : model.Idea {
             return  {
                 "title": "test",
                 "description": "this is idea",
