@@ -9,6 +9,9 @@ module model {
     /** Representation of an idea. */
     export interface Idea {
 
+        /** The path to the icon. */
+        icon?:string;
+
         /** The title of the idea. */
         title?:string;
 
@@ -29,5 +32,6 @@ module model {
 
         /** All active members for the realization of the idea. */
         members?:User[];
+
     }
 }

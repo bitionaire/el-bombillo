@@ -5,33 +5,29 @@
 module service {
     'use strict';
 
-    interface Idea extends ng.resource.IResource<model.Idea> {}
-
-    interface IdeaResource extends ng.resource.IResourceClass<Idea> {
-        all() : Idea[];
+    interface IdeaResource extends ng.resource.IResourceClass<model.Idea> {
+        all() : model.Idea[];
     }
 
-    angular.module("app").factory('IdeaResource',  ['$resource', ($resource : ng.resource.IResourceService) : IdeaResource => {
-
+    angular.module("app").factory('IdeaResource', ['$resource', ($resource:ng.resource.IResourceService):IdeaResource => {
         // Define your custom actions here as IActionDescriptor
-        var updateAction : ng.resource.IActionDescriptor = {
+        var getAllAction:ng.resource.IActionDescriptor = {
             method: 'GET',
             isArray: true
         };
 
         // Return the resource, include your custom actions
         return <IdeaResource> $resource('/example/idea/ideas.json', {}, {
-            all: updateAction
+            all: getAllAction
         });
-
     }]);
 
     /** The idea service retrieves all ideas. */
     export class IdeaService {
 
-        private resource : IdeaResource;
+        private resource:IdeaResource;
 
-        constructor($resource: IdeaResource) {
+        constructor($resource:IdeaResource) {
             this.resource = $resource;
         }
 
@@ -44,8 +40,8 @@ module service {
             return this.resource.all();
         }
 
-        find(id: number) : model.Idea {
-            return  {
+        find(id:number):model.Idea {
+            return {
                 "title": "test",
                 "description": "this is idea",
                 "popularity": 1,
@@ -70,4 +66,5 @@ module service {
     angular
         .module('app')
         .service('ideaService', ["IdeaResource", IdeaService]);
-};
+}
+;

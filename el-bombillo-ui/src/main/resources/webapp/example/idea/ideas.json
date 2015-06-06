@@ -1,6 +1,6 @@
 [
   {
-    "logo": "example/idea/idea_icon_1.jpg",
+    "icon": "example/idea/idea_icon_1.jpg",
     "title": "Idea 1",
     "description": "This is just some example idea, so no need for an awesome description.",
     "popularity": 1,
@@ -12,6 +12,106 @@
     ],
     "members": [
       { "name": "bitionaire" },
+      { "name": "haimich" }
+    ]
+  },
+  {
+    "title": "Idea 2",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 1,
+    "activity": 2,
+    "status": 3,
+    "tags": [
+      "Idea",
+      "Social"
+    ],
+    "members": [
+      { "name": "MatthiasKainer" },
+      { "name": "haimich" }
+    ]
+  },
+  {
+    "icon": "example/idea/idea_icon_2.jpg",
+    "title": "Idea 3",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 2,
+    "activity": 1,
+    "status": 2,
+    "tags": [
+      "Idea",
+      "Game",
+      "RPG",
+      "Mexico"
+    ],
+    "members": [
+      { "name": "johannes85" },
+      { "name": "netdevfighter" }
+    ]
+  },
+  {
+    "icon": "example/idea/idea_icon_3.jpg",
+    "title": "Idea 4",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 3,
+    "activity": 1,
+    "status": 1,
+    "tags": [
+      "Sports",
+      "Basketball"
+    ],
+    "members": [
+      { "name": "johannes85" },
+      { "name": "piranha87" }
+    ]
+  },
+  {
+    "icon": "example/idea/idea_icon_4.jpg",
+    "title": "Idea 5",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 1,
+    "activity": 3,
+    "status": 1,
+    "tags": [
+      "LAN-Party",
+      "Gaming",
+      "eSport"
+    ],
+    "members": [
+      { "name": "AmShaegar13" },
+      { "name": "mgsnova" }
+    ]
+  },
+  {
+    "icon": "example/idea/idea_icon_5.jpg",
+    "title": "Idea 6",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 1,
+    "activity": 3,
+    "status": 2,
+    "tags": [
+      "Idea",
+      "IT",
+      "Web"
+    ],
+    "members": [
+      { "name": "AmShaegar13" },
+      { "name": "MatthiasKainer" }
+    ]
+  },
+  {
+    "icon": "example/idea/idea_icon_6.jpg",
+    "title": "Idea 7",
+    "description": "This is just some example idea, so no need for an awesome description.",
+    "popularity": 2,
+    "activity": 3,
+    "status": 2,
+    "tags": [
+      "Idea",
+      "Software",
+      "OS"
+    ],
+    "members": [
+      { "name": "beorgler" },
       { "name": "netdevfighter" }
     ]
   }
