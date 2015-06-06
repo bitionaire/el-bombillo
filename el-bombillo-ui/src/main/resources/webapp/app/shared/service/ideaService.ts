@@ -5,8 +5,35 @@
 module service {
     'use strict';
 
+    interface Idea extends ng.resource.IResource<model.Idea> {}
+
+    interface IdeaResource extends ng.resource.IResourceClass<Idea> {
+        all() : Idea[];
+    }
+
+    angular.module("app").factory('IdeaResource',  ['$resource', ($resource : ng.resource.IResourceService) : IdeaResource => {
+
+        // Define your custom actions here as IActionDescriptor
+        var updateAction : ng.resource.IActionDescriptor = {
+            method: 'GET',
+            isArray: true
+        };
+
+        // Return the resource, include your custom actions
+        return <IdeaResource> $resource('/example/idea/ideas.json', {}, {
+            all: updateAction
+        });
+
+    }]);
+
     /** The idea service retrieves all ideas. */
     export class IdeaService {
+
+        private resource : IdeaResource;
+
+        constructor($resource: IdeaResource) {
+            this.resource = $resource;
+        }
 
         /**
          * Returns a list of all ideas.
@@ -14,29 +41,7 @@ module service {
          * @returns {model.Idea[]} the list of ideas
          */
         all():model.Idea[] {
-            var ideas : Array<model.Idea> = [];
-            for (var i = 0; i < 9; i++) {
-                ideas[i] = {
-                    "title": "test " + i,
-                    "description": "this is idea number " + i,
-                    "popularity": 1,
-                    "activity": 1,
-                    "status": model.IdeaStatus.FINISHED,
-                    "tags": [
-                        "Idea",
-                        "IT"
-                    ],
-                    "members": [
-                        {
-                            "name": "bitionaire"
-                        },
-                        {
-                            "name": "netdevfighter"
-                        }
-                    ]
-                };
-            }
-            return ideas;
+            return this.resource.all();
         }
 
         find(id: number) : model.Idea {
@@ -64,5 +69,5 @@ module service {
 
     angular
         .module('app')
-        .service('ideaService', IdeaService);
+        .service('ideaService', ["IdeaResource", IdeaService]);
 };
