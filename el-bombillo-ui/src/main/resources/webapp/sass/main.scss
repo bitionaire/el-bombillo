@@ -105,64 +105,87 @@ body > footer {
   }
 }
 
-// ************ idea UI Card styling
-.idea-overview {
+.highlighted-content {
   padding: $default-padding / 2;
   background: #ffdc54 url('../img/angle-mid-light.png') no-repeat right bottom;
   min-height: 200px;
 
+  // floating enables dynamic scaling through repeat
+  float: left;
+  width: 100%;
+
+  .highlighted-content-container {
+    float: left;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
   &:after {
-    content: "";
-    display: table;
     clear: both;
   }
 }
 
-.idea-card {
+// ************ idea UI Card styling
+.idea {
   float: left;
-  background-color: #fff;
 
-  margin: $default-padding / 2;
+  .idea-card {
+    float: left;
+    background-color: #fff;
 
-  -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
-  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+    min-width: 300px;
+    max-width: 100%;
 
-  .idea-icon {
-    img {
-      width: 70px;
-      height: auto;
-      margin: $default-padding;
+    margin: $default-padding / 2;
 
-      border: 2px solid #ffdc54;
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
 
-      border-radius: 35px;
-      -webkit-border-radius: 35px;
-      -moz-border-radius: 35px;
-
-      float: left;
+    .row {
+      max-width: 100%;
     }
-  }
 
-  .idea-description {
-    width: 400px;
+    .idea-main-info {
+      padding: $default-padding;
 
-    header {
-      @include font-bold();
-      font-size: 1.1em;
+      .idea-icon {
+        float: left;
+        img {
+          width: 100px;
+          height: auto;
+          margin: 0;
+
+          border: 2px solid #ffdc54;
+          padding: 2px;
+
+          border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+        }
+      }
+
+      .idea-description {
+        float: right;
+        header {
+          @include font-bold();
+          font-size: 1.1em;
+        }
+        padding: $default-padding;
+      }
     }
-    margin: $default-padding $default-padding $default-padding 0;
-  }
 
-  .idea-statistics {
-    text-align: center;
-    background-color: #ddd;
+    .idea-statistics {
+      text-align: center;
+      background-color: #ddd;
 
-    .statistics-title {
-      display: block;
-      @include font-bold();
-      color: #666;
-      text-transform: uppercase;
+      .statistics-title {
+        display: block;
+        @include font-bold();
+        color: #666;
+        text-transform: uppercase;
+      }
     }
   }
 }
