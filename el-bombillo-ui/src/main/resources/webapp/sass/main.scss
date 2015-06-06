@@ -1,9 +1,8 @@
 @import "../../../../../bower_components/foundation/scss/normalize";
 @import "../../../../../bower_components/foundation/scss/foundation/components/grid";
+@import "constants";
 @import "fonts";
 @import "util";
-
-$default-padding: 16px;
 
 html, body {
   height: 100%;
@@ -25,34 +24,35 @@ body {
   margin: 0;
 }
 
-.page-row {
-  display: table-row;
-  height: 1px;
-}
-
 body > header {
-  width: 100%;
-  background: url('../img/angle-top-light.png') no-repeat right bottom;
+  .header-container {
+    position: relative;
+    width: 100%;
+    background: url('../img/angle-top-light.png') no-repeat right bottom;
 
-  img.logo {
-    width: 10%;
-    min-width: 100px;
-    max-width: 150px;
-    height: auto;
+    img.logo {
+      width: 10%;
+      min-width: 100px;
+      max-width: 150px;
+      height: auto;
 
-    padding-top: 16px;
-    padding-left: 32px;
-    padding-bottom: 50px;
-  }
+      margin-left: $header-margin;
 
-  img.cactus {
-    float: right;
-    width: auto;
-    height: 150px;
-    min-height: 100px;
-    max-height: 200px;
+      padding-top: 16px;
+      padding-bottom: 50px;
+    }
 
-    margin-right: $default-padding;
+    img.cactus {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      width: auto;
+      height: 150px;
+      min-height: 97%;
+
+      margin-right: $header-margin;
+    }
   }
 }
 
@@ -167,12 +167,6 @@ body > footer {
   }
 }
 // ************
-
-.bottom-angle-separator {
-  width: 100%;
-  height: 50px;
-  background: url('../img/angle-bottom-light.png') no-repeat right bottom;
-}
 
 .about {
   text-align: center;
