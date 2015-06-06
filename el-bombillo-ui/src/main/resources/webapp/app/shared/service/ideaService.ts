@@ -6,7 +6,7 @@ module service {
     'use strict';
 
     interface IdeaResource extends ng.resource.IResourceClass<model.Idea> {
-        all() : model.Idea[];
+        all() : ng.IPromise<model.Idea>[];
     }
 
     angular.module("app").factory('IdeaResource', ['$resource', ($resource:ng.resource.IResourceService):IdeaResource => {
@@ -26,9 +26,11 @@ module service {
     export class IdeaService {
 
         private resource:IdeaResource;
+        private q: ng.IQService;
 
-        constructor($resource:IdeaResource) {
+        constructor($resource:IdeaResource, $q: ng.IQService) {
             this.resource = $resource;
+            this.q = $q;
         }
 
         /**
@@ -40,31 +42,20 @@ module service {
             return this.resource.all();
         }
 
-        find(id:number):model.Idea {
-            return {
-                "title": "test",
-                "description": "this is idea",
-                "popularity": 1,
-                "activity": 1,
-                "status": model.IdeaStatus.FINISHED,
-                "tags": [
-                    "Idea",
-                    "IT"
-                ],
-                "members": [
-                    {
-                        "name": "bitionaire"
-                    },
-                    {
-                        "name": "netdevfighter"
-                    }
-                ]
-            };
+        find(id:number): ng.IPromise<model.Idea> {
+            var deferred = this.q.defer();
+
+            this.all().$promise.then(function(ideas) {
+                console.log(ideas);
+                deferred.resolve(ideas[id]);
+            })
+
+            return deferred.promise;
         }
     }
 
     angular
         .module('app')
-        .service('ideaService', ["IdeaResource", IdeaService]);
+        .service('ideaService', ["IdeaResource", "$q", IdeaService]);
 }
 ;
