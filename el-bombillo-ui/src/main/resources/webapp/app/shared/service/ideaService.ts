@@ -5,8 +5,10 @@
 module service {
     'use strict';
 
-    interface IdeaResource extends ng.resource.IResourceClass<model.Idea> {
-        all() : ng.IPromise<model.Idea>[];
+    interface Idea extends ng.resource.IResource<model.Idea> {}
+
+    interface IdeaResource extends ng.resource.IResourceClass<Idea> {
+        all() : Idea[];
     }
 
     angular.module("app").factory('IdeaResource', ['$resource', ($resource:ng.resource.IResourceService):IdeaResource => {

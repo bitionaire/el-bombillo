@@ -44,6 +44,16 @@ body > header {
     padding-left: 32px;
     padding-bottom: 50px;
   }
+
+  img.cactus {
+    float: right;
+    width: auto;
+    height: 150px;
+    min-height: 100px;
+    max-height: 200px;
+
+    margin-right: $default-padding;
+  }
 }
 
 body > main.page-row {
