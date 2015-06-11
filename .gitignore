@@ -9,4 +9,4 @@ el-bombillo-ui/bower_components
 *.tmp.txt
 *.log
 .sass-cache
-el-bombillo-ui-apigateway/build
+el-bombillo-gateway/build
