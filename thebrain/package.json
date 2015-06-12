@@ -14,9 +14,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "npm install",
+    "install:global-modules": "npm install -g webpack webpack-dev-server",
+    "start": "webpack-dev-server"
+    "watch": "webpack-dev-server -w"
   },
-  "dependencies": {},
+  "dependencies": {
+    "semantic-ui-less": "^1.12.3"
+  },
   "devDependencies": {
     "webpack": "^1.9.10"
   }
