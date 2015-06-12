@@ -62,5 +62,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-ts");
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['ts', 'copy', 'sass']);
+    grunt.registerTask('default', ['tsd', 'ts', 'copy', 'sass']);
 };
