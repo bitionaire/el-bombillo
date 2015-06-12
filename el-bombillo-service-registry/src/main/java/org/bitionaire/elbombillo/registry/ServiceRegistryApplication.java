@@ -16,7 +16,9 @@ public class ServiceRegistryApplication extends Application<ServiceRegistryConfi
 
     @Override
     public void run(final ServiceRegistryConfiguration configuration, final Environment environment) throws Exception {
-        environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(new ServiceRegistryAuthenticator(), "Realm", ServiceRegistryCaller.class)));
+        environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(
+                new ServiceRegistryAuthenticator(configuration.getCredentials()), "Realm", ServiceRegistryCaller.class))
+        );
         environment.jersey().register(new ServiceResource(configuration.getServiceRegistry()));
     }
 }

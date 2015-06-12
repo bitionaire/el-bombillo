@@ -13,3 +13,7 @@ serviceRegistry:
     credentials:
       username: el-bombillo
       password: N4ch0s-A11-DAY!
+
+authCredentials:
+  username: registry
+  password: N4ch0s-A11-DAY!
