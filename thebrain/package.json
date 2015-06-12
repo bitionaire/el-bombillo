@@ -1,0 +1,30 @@
+{
+  "name": "thebrain",
+  "version": "0.0.1",
+  "description": "An alternative frontend for El Bombillo",
+  "author": "The Bombillos",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/bitionaire/el-bombillo/issues"
+  },
+  "homepage": "https://github.com/bitionaire/el-bombillo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitionaire/el-bombillo"
+  },
+  "main": "index.js",
+  "scripts": {
+    "install": "npm install",
+    "install:global-modules": "npm install -g webpack webpack-dev-server",
+    "start": "webpack-dev-server",
+    "build:js": "webpack src/js/*.js static/js/main.js",
+    "bump_version": "npm version patch",
+    "watch": "webpack-dev-server -w"
+  },
+  "dependencies": {
+    "semantic-ui-less": "^1.12.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.9.10"
+  }
+}
