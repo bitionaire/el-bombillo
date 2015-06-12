@@ -3,7 +3,7 @@ package org.bitionaire.elbombillo.ms.idea;
 /**
  *
  *
- * @author Tobias lindenmann
+ * @author netdevfighter
  */
 public class IdeaRestServer {
 
