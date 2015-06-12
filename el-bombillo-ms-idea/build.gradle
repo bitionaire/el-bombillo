@@ -1,7 +1,7 @@
-group 'org.bitionaire.ms.idea'
-version '1.0.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'application'
 
-mainClass='org.bitionaire.elbombillo.ms.idea.IdeaRestServer'
+mainClassName = 'org.bitionaire.elbombillo.ms.idea.IdeaRestServer'
 
 apply plugin: 'java'
 
