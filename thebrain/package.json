@@ -16,7 +16,9 @@
   "scripts": {
     "install": "npm install",
     "install:global-modules": "npm install -g webpack webpack-dev-server",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build:js": "webpack src/js/*.js static/js/main.js",
+    "bump_version": "npm version patch",
     "watch": "webpack-dev-server -w"
   },
   "dependencies": {
