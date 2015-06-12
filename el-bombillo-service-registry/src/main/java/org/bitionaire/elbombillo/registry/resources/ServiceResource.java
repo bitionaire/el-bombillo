@@ -26,5 +26,4 @@ public class ServiceResource {
         return serviceRegistry.services();
     }
 
-
 }

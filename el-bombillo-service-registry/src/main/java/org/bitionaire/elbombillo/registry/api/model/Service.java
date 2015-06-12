@@ -10,14 +10,20 @@ import lombok.ToString;
 public class Service {
 
     @JsonProperty
-    @Getter private String name;
+    @Getter private final String name;
 
     @JsonProperty
-    @Getter private String baseUrl;
+    @Getter private final String baseUrl;
 
-    public Service(@JsonProperty("name") final String name, @JsonProperty("baseUrl") final String baseUrl) {
+    @JsonProperty
+    @Getter private final Credentials credentials;
+
+    public Service(@JsonProperty("name") final String name,
+                   @JsonProperty("baseUrl") final String baseUrl,
+                   @JsonProperty("credentials") final Credentials credentials) {
         this.name = name;
         this.baseUrl = baseUrl;
+        this.credentials = credentials;
     }
 
 }
