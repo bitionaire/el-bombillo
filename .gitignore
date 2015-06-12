@@ -10,3 +10,5 @@ el-bombillo-ui/bower_components
 *.log
 .sass-cache
 el-bombillo-ui-gateway/build
+el-bombillo-ms-idea/build
+el-bombillo-service-registry/build
