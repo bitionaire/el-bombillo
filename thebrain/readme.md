@@ -1,3 +1,3 @@
 ## Prerequisites
 * NodeJS installed
-* npm install webpack -g
+* see package.json scripts section for global npm dependencies
