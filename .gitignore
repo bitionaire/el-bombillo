@@ -12,3 +12,4 @@ el-bombillo-ui/bower_components
 el-bombillo-ui-gateway/build
 el-bombillo-ms-idea/build
 el-bombillo-service-registry/build
+el-bombillo-user-service/build
