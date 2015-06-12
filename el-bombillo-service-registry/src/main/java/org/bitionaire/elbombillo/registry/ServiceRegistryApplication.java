@@ -1,7 +1,11 @@
 package org.bitionaire.elbombillo.registry;
 
 import io.dropwizard.Application;
+import io.dropwizard.auth.AuthFactory;
+import io.dropwizard.auth.basic.BasicAuthFactory;
 import io.dropwizard.setup.Environment;
+import org.bitionaire.elbombillo.registry.core.auth.ServiceRegistryAuthenticator;
+import org.bitionaire.elbombillo.registry.core.auth.ServiceRegistryCaller;
 import org.bitionaire.elbombillo.registry.resources.ServiceResource;
 
 public class ServiceRegistryApplication extends Application<ServiceRegistryConfiguration> {
@@ -12,6 +16,7 @@ public class ServiceRegistryApplication extends Application<ServiceRegistryConfi
 
     @Override
     public void run(final ServiceRegistryConfiguration configuration, final Environment environment) throws Exception {
+        environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(new ServiceRegistryAuthenticator(), "Realm", ServiceRegistryCaller.class)));
         environment.jersey().register(new ServiceResource(configuration.getServiceRegistry()));
     }
 }

@@ -1,7 +1,9 @@
 package org.bitionaire.elbombillo.registry.resources;
 
+import io.dropwizard.auth.Auth;
 import org.bitionaire.elbombillo.registry.api.model.Service;
 import org.bitionaire.elbombillo.registry.core.ServiceRegistry;
+import org.bitionaire.elbombillo.registry.core.auth.ServiceRegistryCaller;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -19,7 +21,7 @@ public class ServiceResource {
     }
 
     @GET
-    public List<Service> services(@QueryParam("name") final String serviceName) {
+    public List<Service> services(@Auth final ServiceRegistryCaller caller, @QueryParam("name") final String serviceName) {
         if (serviceName != null) {
             return serviceRegistry.services(serviceName);
         }
