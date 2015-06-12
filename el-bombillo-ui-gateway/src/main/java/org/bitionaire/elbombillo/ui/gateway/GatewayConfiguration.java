@@ -1,4 +1,4 @@
-package org.bitionaire.elbombillo.gateway;
+package org.bitionaire.elbombillo.ui.gateway;
 
 import io.dropwizard.Configuration;
 
