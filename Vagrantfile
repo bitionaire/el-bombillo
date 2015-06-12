@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
 
   config.vm.provider :virtualbox do |v|
-    v.name = "el-bombillo/centos-7.0"
+    v.name = "elbombillo"
     v.memory = 2048
     v.cpus = 2
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
