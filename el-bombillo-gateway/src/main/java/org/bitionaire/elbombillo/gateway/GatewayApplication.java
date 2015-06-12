@@ -3,6 +3,8 @@ package org.bitionaire.elbombillo.gateway;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
+import org.bitionaire.elbombillo.gateway.api.model.Service;
+import org.bitionaire.elbombillo.gateway.core.ServiceRegistry;
 import org.bitionaire.elbombillo.gateway.resources.GatewayResource;
 
 import java.util.Arrays;
@@ -20,7 +22,10 @@ public class GatewayApplication extends Application<GatewayConfiguration> {
 
     @Override
     public void run(final GatewayConfiguration gatewayConfiguration, final Environment environment) throws Exception {
-        environment.jersey().register(new GatewayResource());
+        final ServiceRegistry serviceRegistry = new ServiceRegistry();
+        serviceRegistry.add(new Service("el-bombillo-ideas", "http://localhost:8080/"));
+
+        environment.jersey().register(new GatewayResource(serviceRegistry));
         log.trace("added resource class {}", GatewayResource.class.getCanonicalName());
     }
 }

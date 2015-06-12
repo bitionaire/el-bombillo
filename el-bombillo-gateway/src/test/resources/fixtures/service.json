@@ -1,5 +1,6 @@
 {
   "name": "test",
+  "baseUrl": "http://localhost:8080",
   "paths" : [
     "/test/.*"
   ]

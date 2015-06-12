@@ -13,7 +13,7 @@ public class ServiceTest {
 
     @Test
     public void testSerialization() throws Exception {
-        final Service service = new Service("test", "/test/.*");
+        final Service service = new Service("test", "http://localhost:8080", "/test/.*");
         final String expected = MAPPER.writeValueAsString(MAPPER.readValue(fixture("fixtures/service.json"), Service.class));
         assertEquals(expected, MAPPER.writeValueAsString(service));
     }
