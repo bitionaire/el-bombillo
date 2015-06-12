@@ -14,6 +14,11 @@ public class ServiceRegistry {
 
     @JsonCreator
     public ServiceRegistry(@JsonProperty("services") final Service... services) {
+        final long distinctBaseUrlCount = Arrays.stream(services).map(service -> service.getBaseUrl()).distinct().count();
+        if (distinctBaseUrlCount != services.length) {
+            throw new IllegalArgumentException("services list contains duplicate base URLs");
+        }
+
         this.services = Arrays.asList(services);
     }
 

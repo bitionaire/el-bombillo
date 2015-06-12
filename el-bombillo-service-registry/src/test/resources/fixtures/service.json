@@ -1,0 +1,8 @@
+{
+  "name": "test-service",
+  "baseUrl": "http://localhost:8080",
+  "credentials": {
+    "username": "test-service",
+    "password": "secret"
+  }
+}
