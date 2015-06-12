@@ -5,3 +5,11 @@ server:
   adminConnectors:
   - type: http
     port: 9021
+
+serviceRegistry:
+  services:
+  - name: ms-idea
+    baseUrl: http://localhost:8080
+    credentials:
+      username: el-bombillo
+      password: N4ch0s-A11-DAY!
