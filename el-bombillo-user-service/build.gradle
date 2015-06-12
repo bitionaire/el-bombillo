@@ -1,7 +1,7 @@
 apply plugin: 'java'
-//apply plugin: 'application'
+apply plugin: 'application'
 
-//mainClassName = 'org.bitionaire.elbombillo.registry.ServiceRegistryApplication'
+mainClassName = 'org.bitionaire.elbombillo.user.UserServiceApplication'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -22,6 +22,6 @@ repositories {
     mavenCentral()
 }
 
-/*run {
+run {
     args "server", "${project.projectDir}/src/main/resources/dev.yml"
-}*/
+}
