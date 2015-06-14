@@ -22,6 +22,11 @@ public class IdeaService {
 
     }
 
+    @RequestMapping(value ="update", method = RequestMethod.POST)
+    public void update(Idea item) {
+
+    }
+
     @RequestMapping("/idea/{0}")
     public Idea getIdea(@PathVariable long id) {
         return null;
