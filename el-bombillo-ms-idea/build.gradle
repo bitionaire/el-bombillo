@@ -37,3 +37,7 @@ repositories {
     mavenLocal()
     mavenCentral()
 }
+
+run {
+    args "-s", "${project.projectDir}/src/main/resources/dev.yml"
+}

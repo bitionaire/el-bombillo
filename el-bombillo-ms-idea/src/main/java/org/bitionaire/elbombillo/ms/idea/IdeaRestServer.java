@@ -41,7 +41,8 @@ public class IdeaRestServer {
         if (fileConfiguration.exists() && fileConfiguration.canRead()) {
             this.serverFile = fileConfiguration;
         } else {
-            throw new IllegalArgumentException("The given file exists not or there is rights issue.");
+            throw new IllegalArgumentException("The given file '" + fileConfiguration
+                    + "' exists not or there is rights issue.");
         }
     }
 
