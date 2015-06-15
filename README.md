@@ -19,21 +19,21 @@ Maybe you're asking yourself who's _we_ and why are we doing this? We're just so
 
 Here's a list of features this service may or may not include. For now it's an overview that will help you to get a better impression of what we'll be trying to do.
 
-* Share ideas and define it by a title, teaser and longer description
-* Search for ideas and see if they already exist
-* Form a team, participate or search for contributors who might help in developing your idea
-* We're gamers and we need _Gamification_. We feel naked without at least a few badges
-* Share documents
-* Add external links (e.g. contact, link to code repo)
-* Organize your idea by a desired feature set
-* Publish the status and progress of your idea (from _just thought about it_ to _here it is_)
-* Blog about the progress
-* Communicate, invite people to contribute
-* Every user needs a profile page (where else should we put those badges?)
-* Our ideas should be creditted by the community
-* We need a calendar to appoint our meetings (... and we love :beer:, maybe it can be combined)
-* Upload images (and other files) to illustrate our ideas
-* We would like to discover ideas (best ideas, latest ideas, trending ideas, etc.)
+* :white_check_mark: Share ideas and define it by a title, teaser and longer description
+* :white_check_mark: Search for ideas and see if they already exist
+* :white_check_mark: Form a team, participate or search for contributors who might help in developing your idea
+* :question: We're gamers and we need _Gamification_. We feel naked without at least a few badges
+* :question: Share documents
+* :question: Add external links (e.g. contact, link to code repo)
+* :question: Organize your idea by a desired feature set
+* :white_check_mark: Publish the status and progress of your idea (from _just thought about it_ to _here it is_)
+* :question: Blog about the progress
+* :question: Communicate, invite people to contribute
+* :question: Every user needs a profile page (where else should we put those badges?)
+* :question: Our ideas should be creditted by the community
+* :question: We need a calendar to appoint our meetings (... and we love :beer:, maybe it can be combined)
+* :question: Upload images (and other files) to illustrate our ideas
+* :white_check_mark: We would like to discover ideas (best ideas, latest ideas, trending ideas, etc.)
 
 ## Next steps
 
