@@ -15,9 +15,10 @@
   "main": "index.js",
   "scripts": {
     "install": "npm install",
-    "install:global-modules": "npm install -g webpack webpack-dev-server",
     "start": "webpack-dev-server",
     "build:js": "webpack src/js/*.js static/js/main.js",
+    "build:css": "lessc src/less/*.less static/css/style.css",
+    "postInstall": "cp src/theme.config node_modules/semantic-ui-less && mv node_modules/semantic-ui-less/_site node_modules/semantic-ui-less/site",
     "bump_version": "npm version patch",
     "watch": "webpack-dev-server -w"
   },
@@ -25,6 +26,8 @@
     "semantic-ui-less": "^1.12.3"
   },
   "devDependencies": {
-    "webpack": "^1.9.10"
+    "less": "^2.5.1",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
   }
 }

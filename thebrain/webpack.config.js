@@ -2,10 +2,10 @@ var webpack = require('webpack');
 
 module.exports = {
   devServer: {
-      contentBase: "./dist",
-      noInfo: true,
-      hot: false,
-      inline: false
+    contentBase: "./static",
+    noInfo: true,
+    hot: false,
+    inline: false
   }
 };
 //   entry: {
