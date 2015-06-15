@@ -1,3 +1,7 @@
+# Cauting: Inactive
+
+This is just a preliminary prototype that might serve as a copy & paste source.
+
 ## Prerequisites
 
 * [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
