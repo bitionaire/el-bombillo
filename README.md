@@ -1,5 +1,5 @@
 # Hola hombres!
-
+[![Build Status](https://travis-ci.org/bitionaire/el-bombillo.svg)](https://travis-ci.org/bitionaire/el-bombillo)
 [![Join the chat at https://gitter.im/bitionaire/el-bombillo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bitionaire/el-bombillo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 We :heart: to innovate. And as much as we love to innovate, we're missing a simple, easy to use platform where we can share our ideas and improve our concept together. Moreover, we would like to know how brilliant our ideas are. For example I don't like :green_apple:s, but that doesn't mean that there isn't a _1.000.000$_ market for apples. Maybe apples are brilliant, who knows... (_I know for sure, but psst_ :smile: Refer to _Contributors constitution_ and feel free to convince me of the opposite).
