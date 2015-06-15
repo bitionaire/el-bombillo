@@ -13,4 +13,8 @@ el-bombillo-ui-gateway/build
 el-bombillo-ms-idea/build
 el-bombillo-service-registry/build
 el-bombillo-user-service/build
-.vagrant
+.vagrantel-bombillo-ui/node_modules
+el-bombillo-tag/build
+el-bombillo-tag/gradlew*
+el-bombillo-tag/gradle
+
