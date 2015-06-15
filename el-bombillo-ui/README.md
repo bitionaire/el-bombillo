@@ -1,4 +1,4 @@
-# Cauting: Inactive
+# Caution: Inactive
 
 This is just a preliminary prototype that might serve as a copy & paste source.
 
