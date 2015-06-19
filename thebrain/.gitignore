@@ -1,5 +1,5 @@
 logs
 *.log
 node_modules
-static/js/*
-static/css/*
+static/js
+static/css
