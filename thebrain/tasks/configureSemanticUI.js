@@ -17,7 +17,7 @@ function createSiteFolder() {
 }
 
 function copyConfig() {
-	fs.createReadStream('src/theme.config').pipe(fs.createWriteStream(semFolder + '/theme.config'));
+	fs.createReadStream('src/less/theme.config').pipe(fs.createWriteStream(semFolder + '/theme.config'));
 }
 
 createSiteFolder();
