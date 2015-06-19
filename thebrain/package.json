@@ -14,11 +14,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "echo implement-me",
+    "prepare": "npm install",
     "start": "webpack-dev-server",
-    "build:js": "webpack src/js/*.js static/js/main.js",
-    "build:css": "node tasks/configureSemanticUI.js && lessc src/less/*.less static/css/style.css",
-    "bump_version": "npm version patch",
+    "build-js": "npm run prepare & webpack src/js/*.js static/js/main.js",
+    "build-css": "npm run prepare & node tasks/configureSemanticUI.js & lessc src/less/*.less static/css/style.css",
+    "bumpversion": "npm version patch",
     "watch": "webpack-dev-server -w"
   },
   "dependencies": {
