@@ -18,7 +18,7 @@
     "start": "webpack-dev-server",
     "build-js": "webpack",
     "build-css": "node tasks/configureSemanticUI.js && lessc -x src/less/*.less static/css/style.css",
-    "bumpversion": "npm version patch",
+    "test": "karma start &",
     "watch-js": "webpack-dev-server -w",
     "watch-less": "watch 'npm run build-css' src/less"
   },
@@ -28,9 +28,15 @@
   "devDependencies": {
     "babel-core": "^5.5.8",
     "babel-loader": "^5.1.4",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-webpack": "^1.5.1",
     "less": "^2.5.1",
+    "node-libs-browser": "^0.5.2",
     "watch": "^0.16.0",
-    "webpack": "^1.9.10",
+    "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
   }
 }
