@@ -16,13 +16,10 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/js/*.js': ['webpack'],
       'test/*Test.js': ['webpack'],
       'test/**/*Test.js': ['webpack']
     },
-
-    plugins: [
-      require('karma-webpack')
-    ],
 
     reporters: ['progress'],
     port: 9876,
@@ -32,7 +29,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     webpackMiddleware: { noInfo: true }, // webpack-dev-middleware configuration
 
@@ -42,6 +39,11 @@ module.exports = function(config) {
       // webpack watches dependencies
 
       // webpack configuration
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel-loader' }
+        ]
+      }
     },
 
     // Continuous Integration mode
