@@ -17,6 +17,7 @@
     "clean": "rimraf node_modules && npm install",
     "start": "webpack-dev-server",
     "build-js": "webpack",
+    "build-js-prod": "webpack -p",
     "build-css": "node tasks/configureSemanticUI.js && lessc -x src/less/*.less static/css/style.css",
     "test": "karma start",
     "watch-js": "webpack-dev-server -w",
