@@ -26,6 +26,7 @@
     "watch-less": "watch 'npm run build-css' src/less"
   },
   "dependencies": {
+    "react": "^0.13.3",
     "semantic-ui-less": "^1.12.3"
   },
   "devDependencies": {

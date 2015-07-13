@@ -1,4 +1,11 @@
-var name = "Bob", time = "today";
-var result = `Hello ${name}, how are you ${time}?`;
+'use strict';
 
-module.exports = result;
+var React = require('../../node_modules/react/react');
+
+module.exports = React.createClass({
+  render: function() {
+    return <div className="example">
+      <Module>An example React class for Webpack and LESS.</Module>
+    </div>;
+  }
+});
