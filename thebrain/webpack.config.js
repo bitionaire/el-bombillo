@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'thebrain': './src/js/main.js'
+    'main': './src/js/main.js'
   },
   output: {
     filename: 'static/js/[name].js'
@@ -17,7 +17,7 @@ module.exports = {
   devServer: {
     contentBase: "./static",
     noInfo: true,
-    hot: false,
+    hot: true,
     inline: false
   }
 
