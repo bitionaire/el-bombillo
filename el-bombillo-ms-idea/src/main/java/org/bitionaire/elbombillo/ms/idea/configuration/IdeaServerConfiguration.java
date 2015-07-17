@@ -17,4 +17,9 @@ public class IdeaServerConfiguration {
     @JsonProperty("server")
     private ServerFactory serverFactory;
 
+
+    @Getter
+    @Valid
+    @JsonProperty("mongodb")
+    private MongoDBFactory mongoDBFactory;
 }

@@ -1,3 +1,6 @@
 server:
   hostname: localhost
   port: 8080
+mongodb:
+  hostname:
+  port:

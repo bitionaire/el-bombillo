@@ -2,6 +2,7 @@ package org.bitionaire.elbombillo.ms.idea.model;
 
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  *
  * @author netdevfighter
  */
-public class Idea {
+public class Idea implements Serializable {
 
     @Getter
     private final long id;
