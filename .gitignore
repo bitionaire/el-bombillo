@@ -17,5 +17,6 @@ el-bombillo-user-service/build
 el-bombillo-tag/build
 el-bombillo-tag/gradlew*
 el-bombillo-tag/gradle
+Vagrantfile
 
 

@@ -1,4 +1,64 @@
+plugins {
+    id "com.bmuschko.vagrant" version "2.0"
+}
+
 allprojects {
     group = 'org.bitionaire'
     version = '0.1.0-SNAPSHOT'
+}
+
+task createVagrantfile {
+    def vagrantTemplate = new File('Vagrantfile.tpl')
+    def templateEngine = new groovy.text.SimpleTemplateEngine()
+    def template = templateEngine.createTemplate(vagrantTemplate)
+
+    def moduleServices = []
+    subprojects.each { module ->
+        def provisioningDirectory = new File(module.projectDir, 'provisioning')
+        if (provisioningDirectory.exists()) {
+            provisioningDirectory.listFiles().each { File directoryContent ->
+                if (directoryContent.isDirectory() && new File(directoryContent, 'Dockerfile').exists()) {
+                    // add directory content to Vagrantfile.tpl
+                    moduleServices.add(new ModuleService(module, directoryContent.getName()))
+                }
+            }
+        }
+    }
+    def propertyMap = ['services': moduleServices]
+    def vagrantFile = new File('Vagrantfile')
+    vagrantFile.delete()
+    vagrantFile << template.make(propertyMap)
+}
+
+task startVirtualBoxVm(type: com.bmuschko.gradle.vagrant.tasks.VagrantUp) {
+    description = 'Starts VM machine running on VirtualBox.'
+    group = 'VirtualBox VM'
+}
+startVirtualBoxVm.dependsOn createVagrantfile
+
+task stopVirtualBoxVm(type: com.bmuschko.gradle.vagrant.tasks.VagrantDestroy) {
+    description = 'Stops VM machine running on VirtualBox.'
+    group = 'VirtualBox VM'
+}
+
+class ModuleService {
+    def Project module;
+    def String name;
+
+    ModuleService(Project module, String name) {
+        this.module = module;
+        this.name = name;
+    }
+
+    String getServiceName() {
+        return module.name + "/" + name;
+    }
+
+    String getServicePath() {
+        return module.name + "/provisioning/" + name;
+    }
+
+    String toString() {
+        return "Service[module=" + module.name +",name=" + name + "]"
+    }
 }
