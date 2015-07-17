@@ -1,0 +1,8 @@
+---
+# file: site.yml
+
+- hosts: database
+
+  tasks:
+    - name: test
+      shell: echo 'hello world'

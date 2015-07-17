@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/centos-7.0"
+  config.vm.box = "chef/ubuntu-14.04"
   config.ssh.insert_key = false
 
   config.vm.provider :virtualbox do |v|
@@ -17,7 +17,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "el-bombillo"
   config.vm.network :private_network, ip: "192.168.33.55"
+  
+  config.vm.provision "file", source: "el-bombillo-user-service/provisioning/database", destination: "/tmp/el-bombillo-user-service/provisioning/database"
+  config.vm.provision "docker" do |d|
+    d.build_image "/tmp/el-bombillo-user-service/provisioning/database", args: "-t el-bombillo-user-service/database"
+  end
 
-  config.vm.provision "file", source: "./prepare-vm.sh", destination: "/tmp/prepare-vm.sh"
-  config.vm.provision "shell", inline: "/bin/bash /tmp/prepare-vm.sh"
+  config.vm.define "service1" do |service1|
+    config.vm.provision "docker" do |d|
+      d.run "el-bombillo-user-service/database"
+    end
+  end
+
 end
+
