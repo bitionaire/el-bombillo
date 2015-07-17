@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           println ""
           println "  config.vm.define \"service" + serviceNumber + "\" do |service" + serviceNumber + "|"
           println "    config.vm.provision \"docker\" do |d|"
-          println "      d.run \"" + service.getServiceName() + "\""
+          println "      d.run \"" + service.getServiceName() + "\", args: \"-P\""
           println "    end"
           println "  end"
       }

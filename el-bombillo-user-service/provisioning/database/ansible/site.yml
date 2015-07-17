@@ -1,8 +1,7 @@
 ---
 # file: site.yml
 
-- hosts: database
+- hosts: localhost
 
-  tasks:
-    - name: test
-      shell: echo 'hello world'
+  roles:
+    - postgresql

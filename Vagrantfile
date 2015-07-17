@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "service1" do |service1|
     config.vm.provision "docker" do |d|
-      d.run "el-bombillo-user-service/database"
+      d.run "el-bombillo-user-service/database", args: "-P"
     end
   end
 
