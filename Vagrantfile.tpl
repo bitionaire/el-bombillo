@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/ubuntu-14.04"
+  config.vm.box = "leucos/trusty64-ansible-1.9"
   config.ssh.insert_key = false
 
   config.vm.provider :virtualbox do |v|
@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 2048
     v.cpus = 2
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
@@ -21,23 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       println ""
       services.each { service ->
           println "  config.vm.provision \"file\", source: \"" + service.getServicePath() + "\", destination: \"/tmp/" + service.getServicePath() + "\""
-      }
-
-      println "  config.vm.provision \"docker\" do |d|"
-      services.each { service ->
-          println "    d.build_image \"/tmp/" + service.getServicePath() + "\", args: \"-t " + service.getServiceName() + "\""
-      }
-      println "  end"
-
-      def serviceNumber = 0;
-      services.each { service ->
-          serviceNumber++
-          println ""
-          println "  config.vm.define \"service" + serviceNumber + "\" do |service" + serviceNumber + "|"
-          println "    config.vm.provision \"docker\" do |d|"
-          println "      d.run \"" + service.getServiceName() + "\", args: \"-P\""
-          println "    end"
-          println "  end"
+          println "  config.vm.provision \"shell\", inline: \"cd /tmp/" + service.getServicePath() + " && ansible-playbook site.yml -c local\""
       }
   %>
 end

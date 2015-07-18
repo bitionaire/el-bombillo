@@ -17,7 +17,7 @@ task createVagrantfile {
         def provisioningDirectory = new File(module.projectDir, 'provisioning')
         if (provisioningDirectory.exists()) {
             provisioningDirectory.listFiles().each { File directoryContent ->
-                if (directoryContent.isDirectory() && new File(directoryContent, 'Dockerfile').exists()) {
+                if (directoryContent.isDirectory() && new File(directoryContent, 'site.yml').exists()) {
                     // add directory content to Vagrantfile.tpl
                     moduleServices.add(new ModuleService(module, directoryContent.getName()))
                 }
