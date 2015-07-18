@@ -25,4 +25,9 @@ public class ServiceResource {
         return serviceDAO.findByName(serviceName);
     }
 
+    @POST
+    public void register(@Auth final ServiceRegistryCaller caller, final Service service) {
+
+    }
+
 }
