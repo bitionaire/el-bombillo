@@ -1,0 +1,13 @@
+plugins {
+    id "com.bmuschko.vagrant" version "2.0"
+}
+
+task startVirtualBoxVm(type: com.bmuschko.gradle.vagrant.tasks.VagrantUp) {
+    description = 'Starts VM machine running on VirtualBox.'
+    group = 'VirtualBox VM'
+}
+
+task stopVirtualBoxVm(type: com.bmuschko.gradle.vagrant.tasks.VagrantDestroy) {
+    description = 'Stops VM machine running on VirtualBox.'
+    group = 'VirtualBox VM'
+}

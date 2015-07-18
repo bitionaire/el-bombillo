@@ -18,12 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "el-bombillo"
   config.vm.network :private_network, ip: "192.168.33.55"
-  <%
-      println ""
-      services.each { service ->
-          println "  config.vm.provision \"file\", source: \"" + service.getServicePath() + "\", destination: \"/tmp/" + service.getServicePath() + "\""
-          println "  config.vm.provision \"shell\", inline: \"cd /tmp/" + service.getServicePath() + " && ansible-playbook site.yml -c local\""
-      }
-  %>
+  
+  config.vm.provision "file", source: "ansible", destination: "/tmp/ansible"
+  config.vm.provision "shell", inline: "cd /tmp/ansible && ansible-playbook site.yml -c local"
 end
 
