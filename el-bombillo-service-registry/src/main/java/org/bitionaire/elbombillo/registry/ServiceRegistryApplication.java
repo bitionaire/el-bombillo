@@ -9,6 +9,7 @@ import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.registry.core.auth.ServiceRegistryAuthenticator;
 import org.bitionaire.elbombillo.registry.core.auth.ServiceRegistryCaller;
+import org.bitionaire.elbombillo.registry.jdbi.ServiceDAO;
 import org.bitionaire.elbombillo.registry.resources.ServiceResource;
 import org.flywaydb.core.Flyway;
 import org.skife.jdbi.v2.DBI;
@@ -38,6 +39,6 @@ public class ServiceRegistryApplication extends Application<ServiceRegistryConfi
         environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(
                         new ServiceRegistryAuthenticator(configuration.getCredentials()), "Realm", ServiceRegistryCaller.class))
         );
-        environment.jersey().register(new ServiceResource(configuration.getServiceRegistry()));
+        environment.jersey().register(new ServiceResource(jdbi.onDemand(ServiceDAO.class)));
     }
 }

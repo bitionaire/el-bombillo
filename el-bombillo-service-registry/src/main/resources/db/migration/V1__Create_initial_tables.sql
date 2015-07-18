@@ -8,5 +8,3 @@ CREATE TABLE public.service
 );
 ALTER TABLE public.service
  ADD CONSTRAINT unique_id UNIQUE (id);
-ALTER TABLE public.service
- ADD CONSTRAINT unique_name UNIQUE (name);
