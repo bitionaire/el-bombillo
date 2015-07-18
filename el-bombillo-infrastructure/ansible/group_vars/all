@@ -1,0 +1,19 @@
+---
+postgresql_listen_addresses:
+  - localhost
+  - 192.168.33.55
+
+postgresql_pg_hba_default:
+  - { type: local, database: all, user: '{{ postgresql_admin_user }}', address: '', method: '{{ postgresql_default_auth_method }}', comment: '' }
+  - { type: local, database: all, user: all, address: '',             method: '{{ postgresql_default_auth_method }}', comment: '"local" is for Unix domain socket connections only' }
+  - { type: host,  database: all, user: all, address: '0.0.0.0/0',    method: '{{ postgresql_default_auth_method }}', comment: 'IPv4 all connections:' }
+
+postgresql_databases:
+  - name: service-registry-db
+postgresql_users:
+  - name: service-registry-db-user
+    pass: password123
+postgresql_user_privileges:
+  - name: service-registry-db-user
+    db: servicedb
+
