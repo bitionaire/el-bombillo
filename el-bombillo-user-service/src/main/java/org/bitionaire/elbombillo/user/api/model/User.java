@@ -10,7 +10,7 @@ public class User {
     @Getter private final long id;
 
     @JsonProperty
-    @Getter private final String name;
+    @Getter private final String username;
 
     @JsonProperty
     @Getter private final String firstName;
@@ -23,12 +23,12 @@ public class User {
 
     @JsonCreator
     public User(@JsonProperty("id") final long id,
-                @JsonProperty("name") final String name,
+                @JsonProperty("username") final String username,
                 @JsonProperty("firstName") final String firstName,
                 @JsonProperty("lastName") final String lastName,
                 @JsonProperty("email") final String email) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

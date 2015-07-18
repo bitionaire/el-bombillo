@@ -5,6 +5,8 @@ import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
+import org.bitionaire.elbombillo.user.jdbi.UserDAO;
+import org.bitionaire.elbombillo.user.resources.UserResource;
 import org.flywaydb.core.Flyway;
 import org.skife.jdbi.v2.DBI;
 
@@ -29,5 +31,7 @@ public class UserServiceApplication extends Application<UserServiceConfiguration
         // create DBI instance
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, database, "postgresql");
+
+        environment.jersey().register(new UserResource(jdbi.onDemand(UserDAO.class)));
     }
 }

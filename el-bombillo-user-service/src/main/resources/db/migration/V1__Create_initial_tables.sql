@@ -8,3 +8,7 @@ CREATE TABLE public.user
 );
 ALTER TABLE public.user
  ADD CONSTRAINT unique_id UNIQUE (id);
+ALTER TABLE public.user
+ ADD CONSTRAINT unique_username UNIQUE (username);
+ALTER TABLE public.user
+ ADD CONSTRAINT unique_email UNIQUE (email);

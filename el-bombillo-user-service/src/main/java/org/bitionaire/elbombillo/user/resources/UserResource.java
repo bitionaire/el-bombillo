@@ -1,6 +1,7 @@
 package org.bitionaire.elbombillo.user.resources;
 
 import org.bitionaire.elbombillo.user.api.model.User;
+import org.bitionaire.elbombillo.user.jdbi.UserDAO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,15 +12,21 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 
+    private final UserDAO userDAO;
+
+    public UserResource(final UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
     @GET
     public List<User> users() {
-        return null;
+        return userDAO.allUsers();
     }
 
     @GET
     @Path("/{id}")
     public User user(@PathParam("id") final long id) {
-        return null;
+        return userDAO.findUser(id);
     }
 
     @PUT
