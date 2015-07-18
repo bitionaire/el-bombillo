@@ -17,3 +17,15 @@ serviceRegistry:
 authCredentials:
   username: registry
   password: N4ch0s-A11-DAY!
+
+logging:
+  appenders:
+    - type: console
+      threshold: INFO
+      target: stdout
+
+database:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://192.168.33.55:5432/service-registry-db
+  user: service-registry-db-user
+  password: password123

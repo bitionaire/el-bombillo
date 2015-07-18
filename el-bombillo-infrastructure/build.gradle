@@ -2,6 +2,12 @@ plugins {
     id "com.bmuschko.vagrant" version "2.0"
 }
 
+vagrant {
+    installation {
+        validate = false
+    }
+}
+
 task startVirtualBoxVm(type: com.bmuschko.gradle.vagrant.tasks.VagrantUp) {
     description = 'Starts VM machine running on VirtualBox.'
     group = 'VirtualBox VM'
