@@ -5,3 +5,9 @@ server:
   adminConnectors:
   - type: http
     port: 9031
+
+database:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://192.168.33.55:5432/user-service-db
+  user: user-service-db-user
+  password: password123
