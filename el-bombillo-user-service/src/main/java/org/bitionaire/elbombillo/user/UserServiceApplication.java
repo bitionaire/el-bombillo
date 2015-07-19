@@ -36,10 +36,10 @@ public class UserServiceApplication extends Application<UserServiceConfiguration
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, database, "postgresql");
 
+        // register service in registry
         final Client client = new JerseyClientBuilder(environment).using(configuration.getHttpClient()).build("httpClient");
         final UserServiceLifecycleListener userServiceLifecycleListener = new UserServiceLifecycleListener(configuration.getServiceInformation(), configuration.getRegistryService(), client);
         environment.lifecycle().addServerLifecycleListener(userServiceLifecycleListener);
-        environment.lifecycle().addLifeCycleListener(userServiceLifecycleListener);
 
         environment.jersey().register(new UserResource(jdbi.onDemand(UserDAO.class)));
     }
