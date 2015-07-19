@@ -33,4 +33,12 @@ public class Service {
         this.credentials = credentials;
     }
 
+    public String getUsername() {
+        return credentials.getUsername();
+    }
+
+    public String getPassword() {
+        return credentials.getPassword();
+    }
+
 }
