@@ -25,7 +25,7 @@ public class RegistryService {
             final HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(credentials.getUsername(), credentials.getPassword());
             final Response response = client.register(authenticationFeature).target(baseUrl).path("/service").request()
                     .buildPost(Entity.json(serviceInformation)).invoke();
-            if (response.getStatus() / 100 != 2) {
+            if (!response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)) {
                 log.warn("failed to register service with response: {} (code: {})", response, response.getStatus());
                 throw new ProcessingException("invalid registry response code: " + response.getStatus());
             }
