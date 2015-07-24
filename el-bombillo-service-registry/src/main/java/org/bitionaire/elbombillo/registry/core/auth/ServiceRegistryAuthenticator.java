@@ -18,7 +18,7 @@ public class ServiceRegistryAuthenticator implements Authenticator<BasicCredenti
 
     @Override
     public Optional<ServiceRegistryCaller> authenticate(final BasicCredentials credentials) throws AuthenticationException {
-        if (credentials.getPassword().equals(credentials.getPassword())) {
+        if (this.credentials.getPassword().equals(credentials.getPassword())) {
             return Optional.of(new ServiceRegistryCaller(credentials.getUsername()));
         }
         return Optional.absent();

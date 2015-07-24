@@ -60,7 +60,7 @@ public class RegistryService {
     public void register(final ServiceInformation serviceInformation, final Client client) {
         try {
             final HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(credentials.getUsername(), credentials.getPassword());
-            final Response response = client.register(authenticationFeature).target(baseUrl).path("/service").request()
+            final Response response = client.register(authenticationFeature).target(baseUrl).path("/services").request()
                     .buildPost(Entity.json(serviceInformation)).invoke();
             if (!response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)) {
                 log.warn("failed to register service with response: {} (code: {})", response, response.getStatus());

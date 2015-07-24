@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class ServiceMapper implements ResultSetMapper<Service> {
 
     @Override
-    public Service map(int index, ResultSet r, StatementContext ctx) throws SQLException {
+    public Service map(final int index, final ResultSet r, final StatementContext ctx) throws SQLException {
         final String username = r.getString("username");
         final String password = r.getString("password");
 
