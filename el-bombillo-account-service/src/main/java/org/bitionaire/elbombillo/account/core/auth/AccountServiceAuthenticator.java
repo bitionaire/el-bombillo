@@ -18,7 +18,8 @@ public class AccountServiceAuthenticator implements Authenticator<BasicCredentia
 
     @Override
     public Optional<AccountServiceCaller> authenticate(final BasicCredentials credentials) throws AuthenticationException {
-        if (serviceInformation.getCredentials().getPassword().equals(credentials.getPassword())) {
+        if (serviceInformation.getCredentials().getUsername().equals(credentials.getUsername()) &&
+                serviceInformation.getCredentials().getPassword().equals(credentials.getPassword())) {
             return Optional.of(new AccountServiceCaller());
         }
         return Optional.absent();
