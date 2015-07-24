@@ -10,15 +10,15 @@ postgresql_pg_hba_default:
 
 postgresql_databases:
   - name: service-registry-db
-  - name: user-service-db
+  - name: account-service-db
 postgresql_users:
   - name: service-registry-db-user
     pass: password123
-  - name: user-service-db-user
+  - name: account-service-db-user
     pass: password123
 postgresql_user_privileges:
   - name: service-registry-db-user
     db: service-registry-db
-  - name: user-service-db-user
-    db: user-service-db
+  - name: account-service-db-user
+    db: account-service-db
 

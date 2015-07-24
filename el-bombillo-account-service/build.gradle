@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.bitionaire.elbombillo.account.AccountServiceApplication'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+// set default encoding
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+    compile group: 'io.dropwizard', name: 'dropwizard-core', version: '0.8.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-auth', version: '0.8.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-client', version: '0.8.1'
+
+    compile group: 'io.dropwizard', name: 'dropwizard-jdbi', version: '0.8.1'
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '3.2.1'
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1201-jdbc41'
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.4'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version: '0.8.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+run {
+    args "server", "${project.projectDir}/src/main/resources/dev.yml"
+}
+run.dependsOn (':el-bombillo-infrastructure:startVirtualBoxVm')

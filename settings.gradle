@@ -1,4 +1,4 @@
 rootProject.name = 'el-bombillo'
 
-include 'el-bombillo-ms-idea', 'el-bombillo-ui-gateway', 'el-bombillo-service-registry', 'el-bombillo-user-service', 'el-bombillo-infrastructure'
+include 'el-bombillo-ms-idea', 'el-bombillo-ui-gateway', 'el-bombillo-service-registry', 'el-bombillo-account-service', 'el-bombillo-infrastructure'
 
