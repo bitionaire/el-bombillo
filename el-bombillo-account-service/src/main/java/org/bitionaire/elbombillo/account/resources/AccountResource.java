@@ -33,9 +33,15 @@ public class AccountResource {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/{id : \\d+}")
     public Account account(@PathParam("id") final long id) {
         return accountDAO.findAccount(id);
+    }
+
+    @GET
+    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
+    public Account account(@PathParam("username") final String username) {
+        return accountDAO.findAccount(username);
     }
 
     @PUT

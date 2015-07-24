@@ -12,6 +12,9 @@ public interface AccountDAO {
     @SqlQuery("select id, username, firstname, lastname, email from account where id = :id")
     Account findAccount(@Bind("id") long id);
 
+    @SqlQuery("select id, username, firstname, lastname, email from account where username like :username")
+    Account findAccount(@Bind("username") String username);
+
     @SqlQuery("select id, username, firstname, lastname, email from account")
     List<Account> allAccounts();
 
