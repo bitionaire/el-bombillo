@@ -10,12 +10,12 @@ import java.util.List;
 public interface AccountDAO {
 
     @SqlQuery("select id, username, firstname, lastname, email from account where id = :id")
-    Account findUser(@Bind("id") long id);
+    Account findAccount(@Bind("id") long id);
 
     @SqlQuery("select id, username, firstname, lastname, email from account")
-    List<Account> allUsers();
+    List<Account> allAccounts();
 
     @GetGeneratedKeys
     @SqlUpdate("insert into account (username, firstname, lastname, email) values (:username, :firstName, :lastName, :email)")
-    long insertUser(@BindBean Account account);
+    long insertAccount(@BindBean Account account);
 }

@@ -26,20 +26,20 @@ public class AccountResource {
     }
 
     @GET
-    public List<Account> users() {
-        return accountDAO.allUsers();
+    public List<Account> accounts() {
+        return accountDAO.allAccounts();
     }
 
     @GET
     @Path("/{id}")
-    public Account user(@PathParam("id") final long id) {
-        return accountDAO.findUser(id);
+    public Account account(@PathParam("id") final long id) {
+        return accountDAO.findAccount(id);
     }
 
     @PUT
     public Response create(@Context UriInfo uriInfo, final Account account) {
         log.info("about to create account {}", account);
-        final long id = accountDAO.insertUser(account);
+        final long id = accountDAO.insertAccount(account);
         try {
             return Response.created(new URI(uriInfo.getAbsolutePath().toString() + "/" + id)).build();
         } catch (final URISyntaxException e) {
