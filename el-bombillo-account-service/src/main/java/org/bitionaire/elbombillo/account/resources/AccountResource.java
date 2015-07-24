@@ -1,7 +1,9 @@
 package org.bitionaire.elbombillo.account.resources;
 
+import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.api.model.Account;
+import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
 
 import javax.ws.rs.*;
@@ -37,7 +39,7 @@ public class AccountResource {
     }
 
     @PUT
-    public Response create(@Context UriInfo uriInfo, final Account account) {
+    public Response create(@Context UriInfo uriInfo, @Auth AccountServiceCaller caller, final Account account) {
         log.info("about to create account {}", account);
         final long id = accountDAO.insertAccount(account);
         try {
@@ -49,7 +51,7 @@ public class AccountResource {
     }
 
     @POST
-    public void update(final Account account) {
+    public void update(@Auth AccountServiceCaller caller, final Account account) {
 
     }
 

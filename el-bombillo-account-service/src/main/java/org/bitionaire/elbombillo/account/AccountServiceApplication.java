@@ -1,11 +1,15 @@
 package org.bitionaire.elbombillo.account;
 
 import io.dropwizard.Application;
+import io.dropwizard.auth.AuthFactory;
+import io.dropwizard.auth.basic.BasicAuthFactory;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
+import org.bitionaire.elbombillo.account.core.auth.AccountServiceAuthenticator;
+import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.core.registry.AccountServiceLifecycleListener;
 import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
@@ -40,6 +44,11 @@ public class AccountServiceApplication extends Application<AccountServiceConfigu
         final Client client = new JerseyClientBuilder(environment).using(configuration.getHttpClient()).build("httpClient");
         final AccountServiceLifecycleListener accountServiceLifecycleListener = new AccountServiceLifecycleListener(configuration.getServiceInformation(), configuration.getRegistryService(), client);
         environment.lifecycle().addServerLifecycleListener(accountServiceLifecycleListener);
+
+        // register authenticator
+        environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(
+                        new AccountServiceAuthenticator(configuration.getServiceInformation()), "Realm", AccountServiceCaller.class))
+        );
 
         environment.jersey().register(new AccountResource(jdbi.onDemand(AccountDAO.class)));
     }
