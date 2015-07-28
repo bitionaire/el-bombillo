@@ -1,8 +1,10 @@
 package org.bitionaire.elbombillo.account.resources;
 
+import com.google.common.base.Optional;
 import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.api.model.Account;
+import org.bitionaire.elbombillo.account.api.model.AccountList;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
 
@@ -21,6 +23,8 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class AccountResource {
 
+    public static final int PAGE_SIZE = 10;
+
     private final AccountDAO accountDAO;
 
     public AccountResource(final AccountDAO accountDAO) {
@@ -28,24 +32,31 @@ public class AccountResource {
     }
 
     @GET
-    public List<Account> accounts() {
-        return accountDAO.allAccounts();
+    public Optional<AccountList> getAll(@QueryParam("page") @DefaultValue("1") final int page) {
+        final long countAccounts = accountDAO.countAccounts();
+        final int maxPage = (int) ((countAccounts / PAGE_SIZE) + 1);
+
+        if (page > maxPage || page < 1) {
+            return Optional.absent();
+        }
+
+        return Optional.of(new AccountList(accountDAO.allAccounts(PAGE_SIZE, PAGE_SIZE * (page - 1)), page, maxPage));
     }
 
     @GET
     @Path("/{id : \\d+}")
-    public Account account(@PathParam("id") final long id) {
-        return accountDAO.findAccount(id);
+    public Optional<Account> get(@PathParam("id") final long id) {
+        return Optional.fromNullable(accountDAO.findAccount(id));
     }
 
     @GET
     @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
-    public Account account(@PathParam("username") final String username) {
-        return accountDAO.findAccount(username);
+    public Optional<Account> get(@PathParam("username") final String username) {
+        return Optional.fromNullable(accountDAO.findAccount(username));
     }
 
     @PUT
-    public Response create(@Context UriInfo uriInfo, @Auth AccountServiceCaller caller, final Account account) {
+    public Response create(@Context final UriInfo uriInfo, @Auth final AccountServiceCaller caller, final Account account) {
         log.info("about to create account {}", account);
         final long id = accountDAO.insertAccount(account);
         try {
@@ -57,8 +68,22 @@ public class AccountResource {
     }
 
     @POST
-    public void update(@Auth AccountServiceCaller caller, final Account account) {
-
+    public Response update(@Auth final AccountServiceCaller caller, final Account account) {
+        // TODO
+        return null;
     }
 
+    @DELETE
+    @Path("/{id : \\d+}")
+    public Response delete(@Auth final AccountServiceCaller caller, @PathParam("id") final long id) {
+        // TODO
+        return null;
+    }
+
+    @DELETE
+    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
+    public Response delete(@Auth final AccountServiceCaller caller, @PathParam("username") final String username) {
+        // TODO
+        return null;
+    }
 }

@@ -5,8 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.bitionaire.elbombillo.account.resources.AccountResource;
+import org.glassfish.jersey.linking.Binding;
+import org.glassfish.jersey.linking.InjectLink;
 
-@EqualsAndHashCode @ToString
+import javax.ws.rs.core.Link;
+import java.net.URI;
+
+@ToString(of = { "username", "firstName", "lastName", "email" })
+@EqualsAndHashCode(of = { "username", "firstName", "lastName", "email" })
 public class Account {
 
     @JsonProperty
@@ -23,6 +30,16 @@ public class Account {
 
     @JsonProperty
     @Getter private final String email;
+
+    @JsonProperty
+    @InjectLink(
+            resource = AccountResource.class,
+            style = InjectLink.Style.ABSOLUTE,
+            method = "get",
+            bindings = @Binding(name = "username", value = "${instance.username}"),
+            rel = "self"
+    )
+    @Getter private URI self;
 
     @JsonCreator
     public Account(@JsonProperty("id") final Long id,

@@ -14,6 +14,7 @@ import org.bitionaire.elbombillo.account.core.registry.AccountServiceLifecycleLi
 import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.flywaydb.core.Flyway;
+import org.glassfish.jersey.linking.DeclarativeLinkingFeature;
 import org.skife.jdbi.v2.DBI;
 
 import javax.ws.rs.client.Client;
@@ -44,6 +45,8 @@ public class AccountServiceApplication extends Application<AccountServiceConfigu
         final Client client = new JerseyClientBuilder(environment).using(configuration.getHttpClient()).build("httpClient");
         final AccountServiceLifecycleListener accountServiceLifecycleListener = new AccountServiceLifecycleListener(configuration.getServiceInformation(), configuration.getRegistryService(), client);
         environment.lifecycle().addServerLifecycleListener(accountServiceLifecycleListener);
+
+        environment.jersey().getResourceConfig().packages(getClass().getPackage().getName()).register(DeclarativeLinkingFeature.class);
 
         // register authenticator
         environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(
