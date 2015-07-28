@@ -1,6 +1,7 @@
 package org.bitionaire.elbombillo.account.resources;
 
 import com.google.common.base.Optional;
+import com.wordnik.swagger.annotations.*;
 import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.api.model.Account;
@@ -18,7 +19,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @Slf4j
-@Path("/accounts")
+@Path("/accounts") @Api("/accounts")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class AccountResource {
@@ -32,7 +33,8 @@ public class AccountResource {
     }
 
     @GET
-    public Optional<AccountList> getAll(@QueryParam("page") @DefaultValue("1") final int page) {
+    @ApiOperation(value = "get all accounts", response = AccountList.class)
+    public Optional<AccountList> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
         final long countAccounts = accountDAO.countAccounts();
         final int maxPage = (int) ((countAccounts / PAGE_SIZE) + 1);
 
@@ -45,17 +47,20 @@ public class AccountResource {
 
     @GET
     @Path("/{id : \\d+}")
-    public Optional<Account> get(@PathParam("id") final long id) {
+    @ApiOperation(value = "get an account by id", response = Account.class)
+    public Optional<Account> get(@ApiParam("the id of the account") @PathParam("id") final long id) {
         return Optional.fromNullable(accountDAO.findAccount(id));
     }
 
     @GET
     @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
-    public Optional<Account> get(@PathParam("username") final String username) {
+    @ApiOperation(value = "get an account by username", response = Account.class)
+    public Optional<Account> get(@ApiParam("the username of the account") @PathParam("username") final String username) {
         return Optional.fromNullable(accountDAO.findAccount(username));
     }
 
     @PUT
+    @ApiOperation("add an account")
     public Response create(@Context final UriInfo uriInfo, @Auth final AccountServiceCaller caller, final Account account) {
         log.info("about to create account {}", account);
         final long id = accountDAO.insertAccount(account);
@@ -68,6 +73,7 @@ public class AccountResource {
     }
 
     @POST
+    @ApiOperation("update an account")
     public Response update(@Auth final AccountServiceCaller caller, final Account account) {
         // TODO
         return null;
@@ -75,14 +81,16 @@ public class AccountResource {
 
     @DELETE
     @Path("/{id : \\d+}")
-    public Response delete(@Auth final AccountServiceCaller caller, @PathParam("id") final long id) {
+    @ApiOperation("delete an account by id")
+    public Response delete(@Auth final AccountServiceCaller caller, @ApiParam("the id of the account") @PathParam("id") final long id) {
         // TODO
         return null;
     }
 
     @DELETE
     @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
-    public Response delete(@Auth final AccountServiceCaller caller, @PathParam("username") final String username) {
+    @ApiOperation("delete an account by username")
+    public Response delete(@Auth final AccountServiceCaller caller, @ApiParam("the username of the account") @PathParam("username") final String username) {
         // TODO
         return null;
     }

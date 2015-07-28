@@ -6,7 +6,10 @@ import io.dropwizard.auth.basic.BasicAuthFactory;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceAuthenticator;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
@@ -24,6 +27,16 @@ public class AccountServiceApplication extends Application<AccountServiceConfigu
 
     public static void main(final String... args) throws Exception {
         new AccountServiceApplication().run(args);
+    }
+
+    @Override
+    public void initialize(final Bootstrap<AccountServiceConfiguration> bootstrap) {
+        bootstrap.addBundle(new SwaggerBundle<AccountServiceConfiguration>() {
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final AccountServiceConfiguration configuration) {
+                return configuration.getSwaggerBundleConfiguration();
+            }
+        });
     }
 
     @Override

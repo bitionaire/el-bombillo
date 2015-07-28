@@ -31,3 +31,8 @@ httpClient:
   gzipEnabled: true
   gzipEnabledForRequests: true
   chunkedEncodingEnabled: true
+
+swagger:
+  resourcePackage: org.bitionaire.elbombillo.account.resources
+  title: Account service
+  description: The account service manages all user accounts

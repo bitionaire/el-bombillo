@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.client.JerseyClientConfiguration;
 import io.dropwizard.db.DataSourceFactory;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import lombok.Getter;
 import org.bitionaire.elbombillo.account.core.registry.RegistryService;
 import org.bitionaire.elbombillo.account.core.registry.model.ServiceInformation;
@@ -27,4 +28,7 @@ public class AccountServiceConfiguration extends Configuration {
     @Valid @NotNull
     @JsonProperty("registry")
     @Getter private RegistryService registryService;
+
+    @JsonProperty("swagger")
+    @Getter private SwaggerBundleConfiguration swaggerBundleConfiguration;
 }

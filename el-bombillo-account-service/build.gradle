@@ -18,6 +18,8 @@ dependencies {
     compile group: 'javax.el', name: 'javax.el-api', version: '2.2.4'
     compile group: 'org.glassfish.web', name: 'javax.el', version: '2.2.4'
 
+    compile group: 'io.federecio', name: 'dropwizard-swagger', version: '0.7.0'
+
     compile group: 'io.dropwizard', name: 'dropwizard-jdbi', version: '0.8.1'
     compile group: 'org.flywaydb', name: 'flyway-core', version: '3.2.1'
     compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1201-jdbc41'
