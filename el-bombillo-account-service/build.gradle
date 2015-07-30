@@ -35,6 +35,6 @@ repositories {
 }
 
 run {
-    args "server", "${project.projectDir}/src/main/resources/dev.yml"
+    args "server", "${project.projectDir}/src/main/config/dev/configuration.yml"
 }
 run.dependsOn (':el-bombillo-infrastructure:startVirtualBoxVm')

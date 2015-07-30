@@ -68,7 +68,7 @@ public class RegistryService {
             }
             log.info("successfully registered service \"{}\"", serviceInformation.getName());
         } catch (final ProcessingException e) {
-            log.warn("failed to register service \"" + serviceInformation.getName() + "\"", e);
+            log.warn("failed to register service \"" + serviceInformation.getName() + "\"");
         }
     }
 

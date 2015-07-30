@@ -12,23 +12,31 @@ import org.bitionaire.elbombillo.account.core.registry.model.ServiceInformation;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+/** This class represents the configuration for the {@link AccountServiceApplication}. */
 public class AccountServiceConfiguration extends Configuration {
 
+    /** The database configuration. */
     @JsonProperty("database")
+    @Valid @NotNull
     @Getter private DataSourceFactory database = new DataSourceFactory();
 
-    @Valid @NotNull
+    /** Initialized configuration for a HTTP client. */
     @JsonProperty("httpClient")
+    @Valid @NotNull
     @Getter private JerseyClientConfiguration httpClient = new JerseyClientConfiguration();
 
-    @Valid @NotNull
+    /** The information about this service. */
     @JsonProperty("service")
+    @Valid @NotNull
     @Getter private ServiceInformation serviceInformation;
 
-    @Valid @NotNull
+    /** The information about the registry service. */
     @JsonProperty("registry")
+    @Valid @NotNull
     @Getter private RegistryService registryService;
 
+    /** The Swagger API-Doc configuration. */
     @JsonProperty("swagger")
+    @Valid @NotNull
     @Getter private SwaggerBundleConfiguration swaggerBundleConfiguration;
 }
