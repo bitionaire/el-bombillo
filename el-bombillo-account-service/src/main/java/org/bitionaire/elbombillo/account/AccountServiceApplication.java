@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceAuthenticator;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.core.registry.AccountServiceLifecycleListener;
+import org.bitionaire.elbombillo.account.health.ServiceRegistryHealthCheck;
 import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.flywaydb.core.Flyway;
@@ -68,6 +69,7 @@ public class AccountServiceApplication extends Application<AccountServiceConfigu
         // setup listener which will register this service within the service registry
         final AccountServiceLifecycleListener accountServiceLifecycleListener = new AccountServiceLifecycleListener(configuration.getServiceInformation(), configuration.getRegistryService(), client);
         environment.lifecycle().addServerLifecycleListener(accountServiceLifecycleListener);
+        environment.healthChecks().register("registry", new ServiceRegistryHealthCheck(accountServiceLifecycleListener));
 
         // enable the linking feature of jersey
         environment.jersey().getResourceConfig().packages(getClass().getPackage().getName()).register(DeclarativeLinkingFeature.class);

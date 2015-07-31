@@ -1,6 +1,7 @@
 package org.bitionaire.elbombillo.account.core.registry;
 
 import io.dropwizard.lifecycle.ServerLifecycleListener;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.core.registry.model.ServiceInformation;
 import org.eclipse.jetty.server.Server;
@@ -16,6 +17,8 @@ public class AccountServiceLifecycleListener implements ServerLifecycleListener 
     /** The service registry to call once the server is started (cf. {@link #serverStarted(Server)}). */
     private final RegistryService registryService;
     private final Client httpClient;
+
+    @Getter private boolean registeredInRegistry = false;
 
     /**
      * Constructs a new instance of this listener.
@@ -35,6 +38,6 @@ public class AccountServiceLifecycleListener implements ServerLifecycleListener 
         final String serviceBaseUrl = server.getURI().toString();
         log.info("base url of service \"{}\" is: {}", serviceInformation.getName(), serviceBaseUrl);
         serviceInformation.setBaseUrl(serviceBaseUrl);
-        registryService.register(serviceInformation, httpClient);
+        registeredInRegistry = registryService.register(serviceInformation, httpClient);
     }
 }

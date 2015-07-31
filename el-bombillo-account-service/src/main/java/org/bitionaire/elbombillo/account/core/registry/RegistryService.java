@@ -57,7 +57,7 @@ public class RegistryService {
      * @param serviceInformation the information of the service to register
      * @param client the http client
      */
-    public void register(final ServiceInformation serviceInformation, final Client client) {
+    public boolean register(final ServiceInformation serviceInformation, final Client client) {
         try {
             final HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(credentials.getUsername(), credentials.getPassword());
             final Response response = client.register(authenticationFeature).target(baseUrl).path("/services").request()
@@ -67,8 +67,10 @@ public class RegistryService {
                 throw new ProcessingException("invalid registry response code: " + response.getStatus());
             }
             log.info("successfully registered service \"{}\"", serviceInformation.getName());
+            return true;
         } catch (final ProcessingException e) {
             log.warn("failed to register service \"" + serviceInformation.getName() + "\"");
+            return false;
         }
     }
 
