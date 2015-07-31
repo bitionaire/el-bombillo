@@ -36,10 +36,10 @@ public class AccountResource {
     @JsonView(AccountRepresentation.Abbreviated.class)
     @ApiOperation(value = "get all accounts", response = AccountListRepresentation.class)
     public Optional<AccountListRepresentation> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page,
-                                                      @ApiParam("limit for number of results") @QueryParam("limit") final Optional<Integer> limit) {
+                                                      @ApiParam("the maximum number of accounts") @QueryParam("limit") final Integer limit) {
         final long countAccounts = accountDAO.countAccounts();
 
-        int resultsLimit = limit.or(ApiConstant.DEFAULT_LIST_PAGE_SIZE);
+        int resultsLimit = Optional.fromNullable(limit).or(ApiConstant.DEFAULT_LIST_PAGE_SIZE);
         if (resultsLimit < 1 || resultsLimit > 100) {
             resultsLimit = ApiConstant.DEFAULT_LIST_PAGE_SIZE;
         }
