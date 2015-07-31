@@ -25,4 +25,13 @@ public interface AccountDAO {
 
     @SqlQuery("select count(id) from account")
     long countAccounts();
+
+    @SqlUpdate("update account set username=:username, firstname=:firstname, lastname=:lastname, email=:email whree id=:id")
+    void updateAccount(@BindBean final Account account);
+
+    @SqlUpdate("delete from account where id=:id")
+    void deleteUser(@Bind("id") final long id);
+
+    @SqlUpdate("delete from account where username = :username")
+    void deleteUser(@Bind("username") final String username);
 }

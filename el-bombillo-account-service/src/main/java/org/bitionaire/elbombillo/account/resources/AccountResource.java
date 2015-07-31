@@ -37,7 +37,13 @@ public class AccountResource {
     @ApiOperation(value = "get all accounts", response = AccountListRepresentation.class)
     public Optional<AccountListRepresentation> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
         final long countAccounts = accountDAO.countAccounts();
-        final int maxPage = (int) ((countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE) + 1);
+
+        final int maxPage;
+        if (countAccounts % ApiConstant.DEFAULT_LIST_PAGE_SIZE == 0) {
+            maxPage = (int) (countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE);
+        } else {
+            maxPage = (int) ((countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE) + 1);
+        }
 
         if (page > maxPage || page < 1) {
             return Optional.absent();
@@ -62,7 +68,7 @@ public class AccountResource {
         return Optional.fromNullable(accountDAO.findAccount(username));
     }
 
-    @PUT
+    @POST
     @ApiOperation("add an account")
     public Response create(@Context final UriInfo uriInfo, @Auth final AccountServiceCaller caller, final Account account) {
         log.info("about to create account {}", account);
@@ -75,26 +81,31 @@ public class AccountResource {
         }
     }
 
-    @POST
+    @PUT
     @ApiOperation("update an account")
     public Response update(@Auth final AccountServiceCaller caller, final Account account) {
-        // TODO
-        return null;
+        final Account oldAccount = accountDAO.findAccount(account.getUsername());
+        if (!oldAccount.equals(account)) {
+            accountDAO.updateAccount(account);
+        }
+        return Response.ok().build();
     }
 
     @DELETE
     @Path("/{id : \\d+}")
     @ApiOperation("delete an account by id")
     public Response delete(@Auth final AccountServiceCaller caller, @ApiParam("the id of the account") @PathParam("id") final long id) {
-        // TODO
-        return null;
+        accountDAO.deleteUser(id);
+        return Response.ok().build();
     }
 
     @DELETE
     @Path("/{username : [a-zA-Z][a-zA-Z_0-9]+}")
     @ApiOperation("delete an account by username")
     public Response delete(@Auth final AccountServiceCaller caller, @ApiParam("the username of the account") @PathParam("username") final String username) {
-        // TODO
-        return null;
+        accountDAO.deleteUser(username);
+        return Response.ok().build();
     }
+
+
 }
