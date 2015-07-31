@@ -4,10 +4,12 @@ import com.google.common.base.Optional;
 import com.wordnik.swagger.annotations.*;
 import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
-import org.bitionaire.elbombillo.account.api.model.Account;
-import org.bitionaire.elbombillo.account.api.model.AccountList;
+import org.bitionaire.elbombillo.account.api.ApiConstant;
+import org.bitionaire.elbombillo.account.api.ApiVersion;
+import org.bitionaire.elbombillo.account.representations.Account;
+import org.bitionaire.elbombillo.account.representations.AccountList;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
-import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
+import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -16,15 +18,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 @Slf4j
 @Path("/accounts") @Api("/accounts")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Consumes({ ApiVersion.DEFAULT_VERSION, ApiVersion.VERSION_1 })
+@Produces({ ApiVersion.DEFAULT_VERSION, ApiVersion.VERSION_1 })
 public class AccountResource {
-
-    public static final int PAGE_SIZE = 10;
 
     private final AccountDAO accountDAO;
 
@@ -36,13 +35,13 @@ public class AccountResource {
     @ApiOperation(value = "get all accounts", response = AccountList.class)
     public Optional<AccountList> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
         final long countAccounts = accountDAO.countAccounts();
-        final int maxPage = (int) ((countAccounts / PAGE_SIZE) + 1);
+        final int maxPage = (int) ((countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE) + 1);
 
         if (page > maxPage || page < 1) {
             return Optional.absent();
         }
 
-        return Optional.of(new AccountList(accountDAO.allAccounts(PAGE_SIZE, PAGE_SIZE * (page - 1)), page, maxPage));
+        return Optional.of(new AccountList(accountDAO.allAccounts(ApiConstant.DEFAULT_LIST_PAGE_SIZE, ApiConstant.DEFAULT_LIST_PAGE_SIZE * (page - 1)), page, maxPage));
     }
 
     @GET

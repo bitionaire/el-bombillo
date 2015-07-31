@@ -1,39 +1,67 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+/* ------------------------------------------------------------------------------------------------
+ * Basic configuration
+ * ------------------------------------------------------------------------------------------------
+ */
 mainClassName = 'org.bitionaire.elbombillo.account.AccountServiceApplication'
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+// Constants that define the version of the java compiler
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-// set default encoding
+// Default sources encoding
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
+/* ------------------------------------------------------------------------------------------------
+ * All library dependencies
+ * ------------------------------------------------------------------------------------------------
+ */
 dependencies {
+    // ------------------------------------------------------------------------------------------------
+    // Runtime dependencies
+    // ------------------------------------------------------------------------------------------------
+    // Framework for RESTful web services - http://www.dropwizard.io/index.html
     compile group: 'io.dropwizard', name: 'dropwizard-core', version: '0.8.1'
     compile group: 'io.dropwizard', name: 'dropwizard-auth', version: '0.8.1'
     compile group: 'io.dropwizard', name: 'dropwizard-client', version: '0.8.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-jdbi', version: '0.8.1'
 
+    // Dynamic HATEOAS links - https://jersey.java.net/documentation/latest/declarative-linking.html
     compile group: 'org.glassfish.jersey.ext', name: 'jersey-declarative-linking', version: '2.17'
     compile group: 'javax.el', name: 'javax.el-api', version: '2.2.4'
     compile group: 'org.glassfish.web', name: 'javax.el', version: '2.2.4'
 
+    // Swagger API doc - https://github.com/federecio/dropwizard-swagger
     compile group: 'io.federecio', name: 'dropwizard-swagger', version: '0.7.0'
 
-    compile group: 'io.dropwizard', name: 'dropwizard-jdbi', version: '0.8.1'
+    // Database migration library and JDBC driver - http://flywaydb.org/
     compile group: 'org.flywaydb', name: 'flyway-core', version: '3.2.1'
     compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1201-jdbc41'
 
+    // Keeps the syntax simple by annotations - https://projectlombok.org/features/index.html
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.4'
 
+    // ------------------------------------------------------------------------------------------------
+    // Test dependencies
+    // ------------------------------------------------------------------------------------------------
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version: '0.8.1'
 }
 
+/* ------------------------------------------------------------------------------------------------
+ * Configuration of repositories to use for dependency resolution
+ * ------------------------------------------------------------------------------------------------
+ */
 repositories {
     mavenCentral()
 }
 
+/* ------------------------------------------------------------------------------------------------
+ * Configuration to start this service within the development environment
+ * ------------------------------------------------------------------------------------------------
+ */
 run {
     args "server", "${project.projectDir}/src/main/config/dev/configuration.yml"
 }

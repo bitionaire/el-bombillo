@@ -1,6 +1,7 @@
-package org.bitionaire.elbombillo.account.jdbi;
+package org.bitionaire.elbombillo.account.persistence.dao;
 
-import org.bitionaire.elbombillo.account.api.model.Account;
+import org.bitionaire.elbombillo.account.representations.Account;
+import org.bitionaire.elbombillo.account.persistence.orm.AccountMapper;
 import org.skife.jdbi.v2.sqlobject.*;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 

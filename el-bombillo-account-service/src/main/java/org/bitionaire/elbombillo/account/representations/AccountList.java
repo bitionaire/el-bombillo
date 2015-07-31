@@ -1,4 +1,4 @@
-package org.bitionaire.elbombillo.account.api.model;
+package org.bitionaire.elbombillo.account.representations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

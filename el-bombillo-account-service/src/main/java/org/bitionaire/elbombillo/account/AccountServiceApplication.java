@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceAuthenticator;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.core.registry.AccountServiceLifecycleListener;
-import org.bitionaire.elbombillo.account.jdbi.AccountDAO;
+import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.flywaydb.core.Flyway;
 import org.glassfish.jersey.linking.DeclarativeLinkingFeature;
