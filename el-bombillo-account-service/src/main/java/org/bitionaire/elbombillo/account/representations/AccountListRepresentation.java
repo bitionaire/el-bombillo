@@ -3,20 +3,24 @@ package org.bitionaire.elbombillo.account.representations;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+import org.bitionaire.elbombillo.account.persistence.entity.Account;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.glassfish.jersey.linking.Binding;
 import org.glassfish.jersey.linking.InjectLink;
 import org.glassfish.jersey.linking.InjectLinks;
 
+import javax.ws.rs.core.Link;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class AccountList {
+public class AccountListRepresentation {
 
     @JsonProperty
     @Getter private List<Account> accounts;
 
-    @JsonProperty
+    @JsonIgnore
     @InjectLinks({
             @InjectLink(
                     resource = AccountResource.class,
@@ -35,7 +39,7 @@ public class AccountList {
                     rel = "prev"
             )
     })
-    @Getter private List<URI> links;
+    private List<Link> links;
 
     @JsonProperty
     @InjectLink(
@@ -53,10 +57,16 @@ public class AccountList {
     @JsonIgnore
     @Getter private int limit;
 
-    public AccountList(final List<Account> accounts, final int page, final int limit) {
+    public AccountListRepresentation(final List<Account> accounts, final int page, final int limit) {
         this.accounts = accounts;
         this.page = page;
         this.limit = limit;
     }
 
+    @JsonProperty
+    public Map<String, URI> getLinks() {
+        final Map<String, URI> linksMap = new HashMap<>();
+        links.stream().forEach(link -> linksMap.put(link.getRel(), link.getUri()));
+        return linksMap;
+    }
 }

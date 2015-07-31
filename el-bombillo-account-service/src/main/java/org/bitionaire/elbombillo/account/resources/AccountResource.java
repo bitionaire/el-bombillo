@@ -1,19 +1,20 @@
 package org.bitionaire.elbombillo.account.resources;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Optional;
 import com.wordnik.swagger.annotations.*;
 import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.api.ApiConstant;
 import org.bitionaire.elbombillo.account.api.ApiVersion;
-import org.bitionaire.elbombillo.account.representations.Account;
-import org.bitionaire.elbombillo.account.representations.AccountList;
+import org.bitionaire.elbombillo.account.persistence.entity.Account;
+import org.bitionaire.elbombillo.account.representations.AccountListRepresentation;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
+import org.bitionaire.elbombillo.account.representations.AccountRepresentation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
@@ -32,8 +33,9 @@ public class AccountResource {
     }
 
     @GET
-    @ApiOperation(value = "get all accounts", response = AccountList.class)
-    public Optional<AccountList> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
+    @JsonView(AccountRepresentation.Abbreviated.class)
+    @ApiOperation(value = "get all accounts", response = AccountListRepresentation.class)
+    public Optional<AccountListRepresentation> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
         final long countAccounts = accountDAO.countAccounts();
         final int maxPage = (int) ((countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE) + 1);
 
@@ -41,10 +43,11 @@ public class AccountResource {
             return Optional.absent();
         }
 
-        return Optional.of(new AccountList(accountDAO.allAccounts(ApiConstant.DEFAULT_LIST_PAGE_SIZE, ApiConstant.DEFAULT_LIST_PAGE_SIZE * (page - 1)), page, maxPage));
+        return Optional.of(new AccountListRepresentation(accountDAO.allAccounts(ApiConstant.DEFAULT_LIST_PAGE_SIZE, ApiConstant.DEFAULT_LIST_PAGE_SIZE * (page - 1)), page, maxPage));
     }
 
     @GET
+    @JsonView(AccountRepresentation.Complete.class)
     @Path("/{id : \\d+}")
     @ApiOperation(value = "get an account by id", response = Account.class)
     public Optional<Account> get(@ApiParam("the id of the account") @PathParam("id") final long id) {
@@ -52,7 +55,8 @@ public class AccountResource {
     }
 
     @GET
-    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
+    @JsonView(AccountRepresentation.Complete.class)
+    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]+}")
     @ApiOperation(value = "get an account by username", response = Account.class)
     public Optional<Account> get(@ApiParam("the username of the account") @PathParam("username") final String username) {
         return Optional.fromNullable(accountDAO.findAccount(username));

@@ -1,6 +1,6 @@
 package org.bitionaire.elbombillo.account.persistence.orm;
 
-import org.bitionaire.elbombillo.account.representations.Account;
+import org.bitionaire.elbombillo.account.persistence.entity.Account;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 
