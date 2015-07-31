@@ -10,9 +10,9 @@ import org.glassfish.jersey.linking.InjectLinks;
 
 import javax.ws.rs.core.Link;
 import java.net.URI;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AccountListRepresentation {
 
@@ -64,8 +64,6 @@ public class AccountListRepresentation {
 
     @JsonProperty
     public Map<String, URI> getLinks() {
-        final Map<String, URI> linksMap = new HashMap<>();
-        links.stream().forEach(link -> linksMap.put(link.getRel(), link.getUri()));
-        return linksMap;
+        return links.stream().collect(Collectors.toMap(Link::getRel, Link::getUri));
     }
 }
