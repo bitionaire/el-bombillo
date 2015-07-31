@@ -35,21 +35,27 @@ public class AccountResource {
     @GET
     @JsonView(AccountRepresentation.Abbreviated.class)
     @ApiOperation(value = "get all accounts", response = AccountListRepresentation.class)
-    public Optional<AccountListRepresentation> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page) {
+    public Optional<AccountListRepresentation> getAll(@ApiParam("the page of the list") @QueryParam("page") @DefaultValue("1") final int page,
+                                                      @ApiParam("limit for number of results") @QueryParam("limit") final Optional<Integer> limit) {
         final long countAccounts = accountDAO.countAccounts();
 
+        int resultsLimit = limit.or(ApiConstant.DEFAULT_LIST_PAGE_SIZE);
+        if (resultsLimit < 1 || resultsLimit > 100) {
+            resultsLimit = ApiConstant.DEFAULT_LIST_PAGE_SIZE;
+        }
+
         final int maxPage;
-        if (countAccounts % ApiConstant.DEFAULT_LIST_PAGE_SIZE == 0) {
-            maxPage = (int) (countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE);
+        if (countAccounts % resultsLimit == 0) {
+            maxPage = (int) (countAccounts / resultsLimit);
         } else {
-            maxPage = (int) ((countAccounts / ApiConstant.DEFAULT_LIST_PAGE_SIZE) + 1);
+            maxPage = (int) ((countAccounts / resultsLimit) + 1);
         }
 
         if (page > maxPage || page < 1) {
             return Optional.absent();
         }
 
-        return Optional.of(new AccountListRepresentation(accountDAO.allAccounts(ApiConstant.DEFAULT_LIST_PAGE_SIZE, ApiConstant.DEFAULT_LIST_PAGE_SIZE * (page - 1)), page, maxPage));
+        return Optional.of(new AccountListRepresentation(accountDAO.allAccounts(resultsLimit, resultsLimit * (page - 1)), page, maxPage));
     }
 
     @GET
