@@ -91,7 +91,7 @@ public class AccountResource {
     }
 
     @DELETE
-    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]}")
+    @Path("/{username : [a-zA-Z][a-zA-Z_0-9]+}")
     @ApiOperation("delete an account by username")
     public Response delete(@Auth final AccountServiceCaller caller, @ApiParam("the username of the account") @PathParam("username") final String username) {
         // TODO
