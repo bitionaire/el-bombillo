@@ -1,4 +1,4 @@
-package org.bitionaire.elbombillo.account.persistence.entity;
+package org.bitionaire.elbombillo.account.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.bitionaire.elbombillo.account.representations.AccountRepresentation;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.glassfish.jersey.linking.Binding;
 import org.glassfish.jersey.linking.InjectLink;
@@ -20,22 +19,22 @@ public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
+    @JsonView({ AccountRepresentation.Abbreviated.class, AccountRepresentation.Complete.class })
     @Getter private final Long id;
 
-    @JsonView(value = { AccountRepresentation.Abbreviated.class, AccountRepresentation.Complete.class })
+    @JsonView({ AccountRepresentation.Abbreviated.class, AccountRepresentation.Complete.class })
     @Getter private final String username;
 
-    @JsonView(value = { AccountRepresentation.Complete.class })
+    @JsonView({ AccountRepresentation.Complete.class })
     @Getter private final String firstName;
 
-    @JsonView(value = { AccountRepresentation.Complete.class })
+    @JsonView({ AccountRepresentation.Complete.class })
     @Getter private final String lastName;
 
-    @JsonView(value = { AccountRepresentation.Complete.class })
+    @JsonView({ AccountRepresentation.Complete.class })
     @Getter private final String email;
 
-    @JsonView(value = { AccountRepresentation.Abbreviated.class, AccountRepresentation.Complete.class })
+    @JsonView({ AccountRepresentation.Abbreviated.class, AccountRepresentation.Complete.class })
     @InjectLink(
             resource = AccountResource.class,
             style = InjectLink.Style.ABSOLUTE,
@@ -45,20 +44,13 @@ public class Account implements Serializable {
     )
     @Getter private URI self;
 
-    public Account(final Long id, final String username, final String firstName, final String lastName, final String email) {
-        this.id = id;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
     @JsonCreator
-    public Account(@JsonProperty("username") final String username,
+    public Account(@JsonProperty("id") final Long id,
+                   @JsonProperty("username") final String username,
                    @JsonProperty("firstName") final String firstName,
                    @JsonProperty("lastName") final String lastName,
                    @JsonProperty("email") final String email) {
-        this.id = null;
+        this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

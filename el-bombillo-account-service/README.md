@@ -38,7 +38,7 @@ Package layout for this service, df. [Dropwizard - Organizing your project](http
 * `org.bitionaire.elbombillo.account`
    * `api`: Constants and utilities for our API
    * `core`: Domain implementation and basic services used by this service
-   * `persistence`: Persistence models, data access objects and ORMs
+   * `model`: The domain object models
+   * `persistence`: Data access objects and ORMs
    * `resources`: RESTful API resources
-   * `representations`: The representations of the object models for our resources
    * `health`: Health checks

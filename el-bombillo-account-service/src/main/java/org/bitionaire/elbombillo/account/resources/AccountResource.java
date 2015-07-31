@@ -7,11 +7,11 @@ import io.dropwizard.auth.Auth;
 import lombok.extern.slf4j.Slf4j;
 import org.bitionaire.elbombillo.account.api.ApiConstant;
 import org.bitionaire.elbombillo.account.api.ApiVersion;
-import org.bitionaire.elbombillo.account.persistence.entity.Account;
-import org.bitionaire.elbombillo.account.representations.AccountListRepresentation;
+import org.bitionaire.elbombillo.account.model.Account;
+import org.bitionaire.elbombillo.account.model.AccountListRepresentation;
 import org.bitionaire.elbombillo.account.core.auth.AccountServiceCaller;
 import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
-import org.bitionaire.elbombillo.account.representations.AccountRepresentation;
+import org.bitionaire.elbombillo.account.model.AccountRepresentation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;

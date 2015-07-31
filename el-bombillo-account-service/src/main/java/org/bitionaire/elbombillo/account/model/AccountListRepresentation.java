@@ -1,9 +1,8 @@
-package org.bitionaire.elbombillo.account.representations;
+package org.bitionaire.elbombillo.account.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import org.bitionaire.elbombillo.account.persistence.entity.Account;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
 import org.glassfish.jersey.linking.Binding;
 import org.glassfish.jersey.linking.InjectLink;
