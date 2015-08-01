@@ -38,6 +38,10 @@ public class AccountServiceLifecycleListener implements ServerLifecycleListener 
         final String serviceBaseUrl = server.getURI().toString();
         log.info("base url of service \"{}\" is: {}", serviceInformation.getName(), serviceBaseUrl);
         serviceInformation.setBaseUrl(serviceBaseUrl);
+        this.register();
+    }
+
+    public void register() {
         registeredInRegistry = registryService.register(serviceInformation, httpClient);
     }
 }

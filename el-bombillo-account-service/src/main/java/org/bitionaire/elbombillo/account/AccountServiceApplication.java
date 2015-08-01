@@ -17,6 +17,7 @@ import org.bitionaire.elbombillo.account.core.registry.AccountServiceLifecycleLi
 import org.bitionaire.elbombillo.account.health.ServiceRegistryHealthCheck;
 import org.bitionaire.elbombillo.account.persistence.dao.AccountDAO;
 import org.bitionaire.elbombillo.account.resources.AccountResource;
+import org.bitionaire.elbombillo.account.tasks.ServiceRegistryTask;
 import org.flywaydb.core.Flyway;
 import org.glassfish.jersey.linking.DeclarativeLinkingFeature;
 import org.skife.jdbi.v2.DBI;
@@ -70,6 +71,7 @@ public class AccountServiceApplication extends Application<AccountServiceConfigu
         final AccountServiceLifecycleListener accountServiceLifecycleListener = new AccountServiceLifecycleListener(configuration.getServiceInformation(), configuration.getRegistryService(), client);
         environment.lifecycle().addServerLifecycleListener(accountServiceLifecycleListener);
         environment.healthChecks().register("registry", new ServiceRegistryHealthCheck(accountServiceLifecycleListener));
+        environment.admin().addTask(new ServiceRegistryTask(accountServiceLifecycleListener));
 
         // enable the linking feature of jersey
         environment.jersey().getResourceConfig().packages(getClass().getPackage().getName()).register(DeclarativeLinkingFeature.class);

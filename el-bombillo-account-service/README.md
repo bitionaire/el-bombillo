@@ -41,4 +41,5 @@ Package layout for this service, df. [Dropwizard - Organizing your project](http
    * `model`: The domain object models
    * `persistence`: Data access objects and ORMs
    * `resources`: RESTful API resources
+   * `tasks`: Administration tasks
    * `health`: Health checks
